@@ -1379,8 +1379,10 @@ Terima kasih!`;
                     ))}
                   </div>
 
-                  <p className="mt-2 max-w-[280px] text-center text-[10px] leading-4 text-white/48">
-                    Product shown for illustration. Actual {spotlightSize} mL bottle dimensions: XXX.
+                  <p className="mt-3 max-w-[360px] text-center text-xs leading-5 text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.72)] sm:text-[13px]">
+                    <span className="font-bold">Product shown for illustration.</span> Actual {spotlightSize} mL bottle dimensions: {spotlightSize === 200
+                      ? "height 18.9 cm; diameter 4.2 cm; total weight 295 g."
+                      : "height 17.9 cm; diameter 6.5 cm; total weight 735 g."}
                   </p>
                 </div>
 
@@ -1604,8 +1606,8 @@ Terima kasih!`;
                       height={760}
                       className="h-[285px] w-auto object-contain drop-shadow-[0_30px_44px_rgba(0,0,0,0.36)] sm:h-[335px] md:h-[390px] lg:h-[455px]"
                     />
-                    <p className="mt-2 max-w-[280px] text-center text-[10px] leading-4 text-white/48">
-                      Product shown for illustration. Actual 10 mL bottle dimensions: XXX.
+                    <p className="mt-3 max-w-[360px] text-center text-xs leading-5 text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.72)] sm:text-[13px]">
+                      <span className="font-bold">Product shown for illustration.</span> Actual dimensions: height 7.3 cm; diameter 2.2 cm; total weight 18 g.
                     </p>
                   </div>
                 </div>
@@ -1702,8 +1704,8 @@ Terima kasih!`;
                       height={1284}
                       className="h-[285px] w-auto object-contain drop-shadow-[0_30px_44px_rgba(0,0,0,0.28)] sm:h-[335px] md:h-[390px] lg:h-[455px]"
                     />
-                    <p className="mt-2 max-w-[280px] text-center text-[10px] leading-4 text-white/48">
-                      Product shown for illustration. Actual container dimensions: XXX.
+                    <p className="mt-1 max-w-[360px] text-center text-xs leading-5 text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.72)] sm:mt-0 sm:text-[13px] md:-mt-2 lg:-mt-3">
+                      <span className="font-bold">Product shown for illustration.</span> Actual container (empty) dimensions: height 5.5 cm; diameter 4 cm; weight 15 g.
                     </p>
                   </div>
                 </div>
@@ -1915,11 +1917,24 @@ Terima kasih!`;
                     </div>
                   ) : (
                     <div className="mt-2 min-h-[3.25rem]">
-                      <p className="text-white/70">
-                        {id === "energy"
-                          ? `From ${formatRupiah(products.energy.price)} | 200 mL (7 serves)`
-                          : formatRupiah(product.price)}
-                      </p>
+                      {id === "energy" ? (
+                        <div className="space-y-1 text-sm text-white/70">
+                          <p>
+                            <span className="font-semibold text-white/88">200 mL</span>
+                            {" · "}
+                            {formatRupiah(products.energy.price)}
+                            <span className="text-white/45"> · 7 serves</span>
+                          </p>
+                          <p>
+                            <span className="font-semibold text-white/88">515 mL</span>
+                            {" · "}
+                            {formatRupiah(products.energy500.price)}
+                            <span className="text-white/45"> · 18 serves</span>
+                          </p>
+                        </div>
+                      ) : (
+                        <p className="text-white/70">{formatRupiah(product.price)}</p>
+                      )}
 
                       {id === "antifog" && (
                         <p className="mt-1 text-xs font-semibold text-white/48">
@@ -2231,24 +2246,34 @@ Terima kasih!`;
 Bought separately, the three products total ${formatRupiah(STARTER_REGULAR_PRICE)}. The Starter Kit is ${formatRupiah(products.starter.price)}, so you save ${formatRupiah(STARTER_SAVINGS)}.`,
               ],
               [
-                "What sizes does NÜGEL Sports Drink Concentrate come in?",
-                "NÜGEL Sports Drink Concentrate comes in 200 mL and 515 mL bottles. The 200 mL bottle provides 7 servings; each serving is mixed with water to make approximately 400 mL of sports drink, for about 2.8 L total. The 515 mL bottle provides 18 servings, yielding about 7.2 L of prepared sports drink.",
-              ],
-              [
                 "Can I buy the products separately?",
                 `Yes. The Sports Drink Concentrate, Measuring Container, and Anti-Fog can all be purchased separately. If you want all three, the Starter Kit saves you ${formatRupiah(STARTER_SAVINGS)} compared with buying them individually.`,
+              ],
+              [
+                "What sizes does NÜGEL Sports Drink Concentrate come in?",
+                "NÜGEL Sports Drink Concentrate comes in 200 mL and 515 mL bottles. The 200 mL bottle provides 7 servings; each serving is mixed with water to make approximately 400 mL of sports drink, for about 2.8 L total. The 515 mL bottle provides 18 servings, yielding about 7.2 L of prepared sports drink.",
               ],
               [
                 "Is NÜGEL halal?",
                 "Yes. NÜGEL Sports Drink Concentrate is labeled Halal Indonesia.",
               ],
               [
-                "Is NÜGEL suitable for kids?",
+                "Is NÜGEL Sports Drink Concentrate suitable for kids?",
                 "NÜGEL can be used by young athletes aged approximately 9–18 years during prolonged or demanding sports activities. For normal daily activity and shorter sessions, water should remain the primary drink, and younger athletes should use sports drinks according to their individual needs and with parental supervision.",
               ],
               [
-                "Does NÜGEL contain caffeine, and is it doping-safe?",
+                "Does NÜGEL Sports Drink Concentrate contain caffeine, and is it doping-safe?",
                 "NÜGEL contains no caffeine or added stimulants and does not intentionally contain substances prohibited by WADA (World Anti-Doping Agency). As with any sports nutrition product, competitive athletes should always check current anti-doping requirements before use.",
+              ],
+              [
+                "Can I apply NÜGEL Anti-Fog Drops on new goggles?",
+                `New swimming goggles usually already have a factory-applied anti-fog coating on the inside of the lenses. If this original coating is still working well, there is normally no need to apply NÜGEL immediately. It is better to leave the factory coating intact and avoid unnecessary rubbing of the inner lens.
+
+Over time, the original anti-fog layer may gradually lose its effectiveness. Depending on the brand, lens type and frequency of use, this may happen after several weeks or months. You may notice that the goggles begin to fog more quickly, or that some parts of the lens remain clear while other areas become foggy.
+
+When the original coating has clearly deteriorated, first check the goggle manufacturer's care instructions. If cleaning of the inner lens is permitted, gently wash the lens with clean lukewarm water and a small amount of mild detergent, then rinse thoroughly. Avoid abrasive cleaners, toothpaste, strong solvents or aggressive rubbing, as these may damage the lens.
+
+Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can be applied as the ongoing anti-fog treatment.`,
               ],
               [
                 "How do I order?",
