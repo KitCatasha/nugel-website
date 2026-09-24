@@ -1762,7 +1762,7 @@ Terima kasih!`;
                     NÜGEL Measuring Container
                   </p>
                   <h3 className="mt-3 text-3xl font-black leading-[1.03] tracking-[-0.035em] md:text-[2.35rem]">
-                    Measure. Mix. Swim.
+                    Measure. Mix. Ready.
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-white/88 md:text-base">
                     A reusable measuring container designed to make preparing
@@ -1801,10 +1801,6 @@ Terima kasih!`;
                           Add approximately 340 mL of water, then shake or stir.
                         </li>
                       </ul>
-
-                      <p className="mt-4 text-sm font-semibold leading-6 text-[#C7FF72]">
-                        Ready to drink — makes approximately 400 mL of NÜGEL sports drink.
-                      </p>
                     </div>
 
                     <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3">
