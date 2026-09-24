@@ -2390,11 +2390,11 @@ Bought separately, the three products total ${formatRupiah(STARTER_REGULAR_PRICE
                 "What sizes does NÜGEL Sports Drink Concentrate come in?",
                 `NÜGEL Sports Drink Concentrate comes in 200 mL (7 servings) and 515 mL (18 servings) bottles.
 
-The 200 mL bottle makes 7 × 400 mL* servings, for approximately 2.8 L of prepared sports drink in total.
+- 200 mL makes 7 × 400 mL* = 2.8 L total sports drink.
 
-The 515 mL bottle makes 18 × 400 mL* servings, for approximately 7.2 L of prepared sports drink in total.
+- 515 mL makes 18 × 400 mL* = 7.2 L total sports drink.
 
-*How to make 400 mL: Mix one serving (28.5 mL concentrate) with about 370 mL water.`,
+*How to make 400 mL: Mix one serving (28.5 mL concentrate) with about 375 mL water.`,
               ],
               [
                 "Is NÜGEL halal?",
