@@ -123,7 +123,7 @@ const aboutBubbles = [
           "Dieter Machate on the first-place podium at the World Aquatics Masters Championships Doha 2024.",
       },
       {
-        src: "/images/dieter-doha-medal.jpeg",
+        src: "/images/dieter-doha-medal-hd.jpeg",
         alt: "Dieter Machate with his gold medal at the World Aquatics Masters Championships Doha 2024",
         caption:
           "Dieter Machate with his gold medal at the World Aquatics Masters Championships Doha 2024.",
@@ -139,7 +139,7 @@ const aboutBubbles = [
     paragraphs: [
       "Long before NÜGEL, Dieter worked with palm sap (Nira) and developed a patented processing method designed to preserve its naturally occurring nutritional components during concentration.",
       "The resulting palm-sap concentrate retains a broad nutritional profile, with more than 50 naturally occurring macro- and micronutrients identified and documented.",
-      "As an athlete, Dieter saw an opportunity to bring that experience into sports nutrition. NÜGEL Sports Drink Concentrate grew from that idea, with approximately 95% of its formulation based on coconut palm sap concentrate and sea salt.",
+      "As an athlete, Dieter saw an opportunity to bring that experience into sports nutrition. NÜGEL Sports Drink Concentrate grew from that idea, with 95% of its formulation based on coconut palm sap concentrate and sea salt.",
     ],
     images: [
       {
@@ -157,11 +157,52 @@ const aboutBubbles = [
     title: "Fuel & Hydrate",
     eyebrow: "Inside NÜGEL",
     preview:
-      "Dual-source carbohydrates, six key electrolytes and naturally occurring nutrients work together in every serving.",
-    paragraphs: [
-      "NÜGEL Sports Drink Concentrate is designed to provide both energy and hydration rather than simply carbohydrate calories.",
-      "Each 28.5 mL serving provides approximately 120 kcal, 29 g of carbohydrates and 720 mg of electrolytes. Its carbohydrates include glucose and fructose in an approximately 1:1 ratio, while the electrolyte profile spans sodium, potassium, chloride, magnesium, calcium and phosphorus.",
-      "The coconut palm sap and sea salt foundation also contributes naturally occurring micronutrients and other nutritional components, creating a broader nutritional matrix for demanding training.",
+      "Natural energy, dual-source carbohydrates, six key electrolytes and a broader nutritional profile in every serving.",
+    richSections: [
+      {
+        heading: "Natural Energy. Electrolytes. More Than Just Fuel.",
+        paragraphs: [
+          "NÜGEL Sports Drink Concentrate takes a different approach to conventional sports nutrition. Instead of building a drink around isolated sugars and powders, we start with 95% coconut palm sap concentrate, sea salt, and lime juice.",
+          "Coconut palm sap — nira kelapa — is the naturally sweet liquid from coconut palm blossoms. We carefully process it to retain its natural nutritional matrix: sugars, minerals, amino acids, and fiber. Sea salt complements it with additional minerals and trace elements. Together, they form the complete foundation for a sports drink designed for swimmers and other endurance athletes.",
+        ],
+      },
+      {
+        heading: "DUAL-SOURCE CARBOHYDRATES FOR SUSTAINED ENERGY",
+        paragraphs: [
+          "Each 28.5 mL serving provides 29g of carbohydrates and 120 kcal. The sugars are naturally present as glucose and fructose in a 1:1 ratio.",
+          "This matters for endurance: glucose and fructose use different intestinal transport pathways. Research shows that combining them can increase the amount of carbohydrate available for oxidation during prolonged exercise compared to glucose alone — especially when your energy demands are high. The sap also retains natural dietary fiber, including inulin.",
+        ],
+      },
+      {
+        heading: "SIX KEY ELECTROLYTES FOR HYDRATION",
+        paragraphs: [
+          "NÜGEL is more than just energy. Each serving contains 720 mg of electrolytes with six key minerals:",
+          "Sodium, Potassium, Chloride, Magnesium, Calcium, and Phosphorus.",
+          "Together with water, they help maintain fluid and mineral balance during activity."
+        ],
+        boldTerms: ["Sodium", "Potassium", "Chloride", "Magnesium", "Calcium", "Phosphorus"],
+      },
+      {
+        heading: "COMPLETE PROFILE IN EVERY SERVING",
+        paragraphs: [
+          "One serving (28.5 mL concentrate + water to 400 mL) provides approximately:",
+          "120 kcal Energy / 29g Carbohydrates / 720 mg Electrolytes / 580 mg Amino Acids",
+          "Accompanied by naturally occurring vitamins, trace elements, and fiber.",
+          "We also retain functional micronutrients naturally present in the sap:",
+        ],
+        bullets: [
+          {
+            label: "Niacin (Vitamin B3)",
+            text: "contributes to normal energy-yielding metabolism — how your body converts nutrients into usable energy.",
+          },
+          {
+            label: "Vitamin C & Zinc",
+            text: "contribute to the normal function of the immune system, relevant for anyone with a regular, demanding training schedule.",
+          },
+        ],
+        closing:
+          "No isolated energy boost. Just a broader nutritional profile from a natural source, supplied as a concentrate so you can prepare it fresh when you need it.",
+      },
     ],
     stats: ["120 kcal", "29 g carbs", "720 mg electrolytes"],
     imageCaption: null,
@@ -1178,7 +1219,12 @@ Terima kasih!`;
                     <button
                       key={item.name}
                       type="button"
-                      onClick={() => goToProduct(item.productIndex)}
+                      onClick={() => {
+                        if (item.productIndex === 0) {
+                          setSpotlightSize(200);
+                        }
+                        goToProduct(item.productIndex);
+                      }}
                       className="starter-kit-item -mx-2 flex w-[calc(100%+1rem)] items-center justify-between gap-5 px-2 py-3 text-left"
                     >
                       <div>
@@ -1217,7 +1263,8 @@ Terima kasih!`;
                     href="#products"
                     onClick={(event) => {
                       event.preventDefault();
-                      scrollToSection("#products");
+                      setSpotlightSize(200);
+                      goToProduct(0);
                     }}
                     className="text-sm font-bold text-[#9DFF00] transition-colors hover:text-white"
                   >
@@ -1405,7 +1452,7 @@ Terima kasih!`;
                     </p>
 
                     <p>
-                      Sea salt helps provide additional important minerals as electrolytes, while real lime juice combined with citric and malic acids gives
+                      Sea salt provides additional important minerals as electrolytes, while real lime juice combined with citric and malic acids gives
                       the drink a fresh taste to balance the
                       sweetness of the sap and create a smooth, refreshing tartness that works well during
                       exercise.
@@ -1513,7 +1560,7 @@ Terima kasih!`;
 
                       <p className="mt-5 border-t border-white/14 pt-4 text-sm leading-6 text-white/72">
                         Includes six key electrolytes and dual-source carbohydrates
-                        in an approximately 1:1 glucose-to-fructose ratio.
+                        in a 1:1 glucose-to-fructose ratio.
                       </p>
                     </div>
 
@@ -1861,14 +1908,21 @@ Terima kasih!`;
                             />
                           </div>
                         </div>
-                      </div>) : id === "energy" ? (
-                      <div className="relative flex h-full w-full items-end justify-center pb-1">
+                      </div>                    ) : id === "energy" ? (
+                      <div className="relative flex h-full w-full -translate-x-[6px] items-end justify-center pb-1 sm:-translate-x-[6px]">
+                        <Image
+                          src="/images/nugel-energy-200.png"
+                          alt="NÜGEL Sports Drink Concentrate 200 ml"
+                          width={1122}
+                          height={1402}
+                          className="relative z-10 -mr-[46px] translate-x-5 h-[178px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 sm:-mr-[54px] sm:translate-x-6"
+                        />
                         <Image
                           src="/images/nugel-energy-515.png"
                           alt="NÜGEL Sports Drink Concentrate 515 ml"
                           width={1122}
                           height={1402}
-                          className="h-[210px] w-auto object-contain transition duration-500 group-hover:-translate-y-1"
+                          className="relative z-20 h-[210px] w-auto object-contain transition duration-500 group-hover:-translate-y-1"
                         />
                       </div>
                     ) : id === "antifog" ? (
@@ -1923,13 +1977,13 @@ Terima kasih!`;
                             <span className="font-semibold text-white/88">200 mL</span>
                             {" · "}
                             {formatRupiah(products.energy.price)}
-                            <span className="text-white/45"> · 7 serves</span>
+                            <span className="text-white/45"> · 7 servings</span>
                           </p>
                           <p>
                             <span className="font-semibold text-white/88">515 mL</span>
                             {" · "}
                             {formatRupiah(products.energy500.price)}
-                            <span className="text-white/45"> · 18 serves</span>
+                            <span className="text-white/45"> · 18 servings</span>
                           </p>
                         </div>
                       ) : (
@@ -2101,21 +2155,108 @@ Terima kasih!`;
                   {aboutBubbles[activeAboutBubble].title}
                 </h3>
 
-                <div className="mt-6 space-y-4">
-                  {aboutBubbles[activeAboutBubble].paragraphs.map((paragraph) => (
-                    <p
-                      key={paragraph}
-                      className={`max-w-3xl text-sm leading-7 text-white/76 md:text-base md:leading-8 ${
-                        "images" in aboutBubbles[activeAboutBubble] &&
-                        aboutBubbles[activeAboutBubble].images?.length === 1
-                          ? "mx-auto lg:mx-0"
-                          : "mx-auto"
-                      }`}
-                    >
-                      {paragraph}
-                    </p>
-                  ))}
-                </div>
+                {"richSections" in aboutBubbles[activeAboutBubble] &&
+                aboutBubbles[activeAboutBubble].richSections ? (
+                  <div className="mt-6 w-full max-w-4xl space-y-7 text-left">
+                    {aboutBubbles[activeAboutBubble].richSections.map((section, sectionIndex) => (
+                      <section
+                        key={section.heading}
+                        className={sectionIndex === 0 ? "" : "border-t border-white/10 pt-6"}
+                      >
+                        <h4
+                          className={`font-black leading-snug ${
+                            sectionIndex === 0
+                              ? "text-xl text-white md:text-2xl"
+                              : "text-sm uppercase tracking-[0.14em] text-[#C7FF72] md:text-base"
+                          }`}
+                        >
+                          {section.heading}
+                        </h4>
+
+                        <div className="mt-3 space-y-3">
+                          {section.paragraphs.map((paragraph) => {
+                            const boldTerms: readonly string[] =
+                              "boldTerms" in section && section.boldTerms
+                                ? section.boldTerms
+                                : [];
+
+                            if (boldTerms.length === 0) {
+                              return (
+                                <p
+                                  key={paragraph}
+                                  className="text-sm leading-7 text-white/76 md:text-base md:leading-8"
+                                >
+                                  {paragraph}
+                                </p>
+                              );
+                            }
+
+                            const pattern = new RegExp(
+                              `(${boldTerms
+                                .map((term) => term.replace(/[.*+?^${}()|[\]\\]/g, "\\$&"))
+                                .join("|")})`,
+                              "g"
+                            );
+
+                            return (
+                              <p
+                                key={paragraph}
+                                className="text-sm leading-7 text-white/76 md:text-base md:leading-8"
+                              >
+                                {paragraph.split(pattern).map((part, partIndex) =>
+                                  boldTerms.includes(part) ? (
+                                    <strong
+                                      key={`${part}-${partIndex}`}
+                                      className="font-black text-white"
+                                    >
+                                      {part}
+                                    </strong>
+                                  ) : (
+                                    <span key={`${partIndex}-${part}`}>{part}</span>
+                                  )
+                                )}
+                              </p>
+                            );
+                          })}
+                        </div>
+
+                        {"bullets" in section && section.bullets && (
+                          <ul className="mt-4 space-y-3 pl-5 text-sm leading-7 text-white/76 md:text-base md:leading-8">
+                            {section.bullets.map((bullet) => (
+                              <li key={bullet.label} className="list-disc">
+                                <span className="font-black text-white">{bullet.label}</span>{" "}
+                                {bullet.text}
+                              </li>
+                            ))}
+                          </ul>
+                        )}
+
+                        {"closing" in section && section.closing && (
+                          <p className="mt-5 text-sm font-semibold leading-7 text-white/90 md:text-base md:leading-8">
+                            {section.closing}
+                          </p>
+                        )}
+                      </section>
+                    ))}
+                  </div>
+                ) : (
+                  <div className="mt-6 space-y-4">
+                    {"paragraphs" in aboutBubbles[activeAboutBubble] &&
+                      aboutBubbles[activeAboutBubble].paragraphs.map((paragraph) => (
+                        <p
+                          key={paragraph}
+                          className={`max-w-3xl text-sm leading-7 text-white/76 md:text-base md:leading-8 ${
+                            "images" in aboutBubbles[activeAboutBubble] &&
+                            aboutBubbles[activeAboutBubble].images?.length === 1
+                              ? "mx-auto lg:mx-0"
+                              : "mx-auto"
+                          }`}
+                        >
+                          {paragraph}
+                        </p>
+                      ))}
+                  </div>
+                )}
 
                 {"stats" in aboutBubbles[activeAboutBubble] &&
                   aboutBubbles[activeAboutBubble].stats && (
