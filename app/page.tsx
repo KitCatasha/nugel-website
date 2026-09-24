@@ -201,7 +201,7 @@ const aboutBubbles = [
           },
         ],
         closing:
-          "No isolated energy boost. Just a broader nutritional profile from a natural source, supplied as a concentrate so you can prepare it fresh when you need it.",
+          "No isolated energy boost. Just a broader nutritional profile from natural sources, supplied as a concentrate so you can prepare it fresh when you need it.",
       },
     ],
     stats: ["120 kcal", "29 g carbs", "720 mg electrolytes"],
@@ -2388,7 +2388,13 @@ Bought separately, the three products total ${formatRupiah(STARTER_REGULAR_PRICE
               ],
               [
                 "What sizes does NÜGEL Sports Drink Concentrate come in?",
-                "NÜGEL Sports Drink Concentrate comes in 200 mL and 515 mL bottles. The 200 mL bottle provides 7 servings; each serving is mixed with water to make approximately 400 mL of sports drink, for about 2.8 L total. The 515 mL bottle provides 18 servings, yielding about 7.2 L of prepared sports drink.",
+                `NÜGEL Sports Drink Concentrate comes in 200 mL (7 servings) and 515 mL (18 servings) bottles.
+
+The 200 mL bottle makes 7 × 400 mL* servings, for approximately 2.8 L of prepared sports drink in total.
+
+The 515 mL bottle makes 18 × 400 mL* servings, for approximately 7.2 L of prepared sports drink in total.
+
+*How to make 400 mL: Mix one serving (28.5 mL concentrate) with about 370 mL water.`,
               ],
               [
                 "Is NÜGEL halal?",
