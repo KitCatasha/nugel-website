@@ -155,7 +155,7 @@ const aboutBubbles = [
   },
   {
     title: "Fuel & Hydrate",
-    eyebrow: "Inside NÜGEL",
+    eyebrow: "Inside NÜGEL Concentrate",
     preview:
       "Natural energy, dual-source carbohydrates, six key electrolytes and a broader nutritional profile in every serving.",
     richSections: [
@@ -185,7 +185,7 @@ const aboutBubbles = [
       {
         heading: "COMPLETE PROFILE IN EVERY SERVING",
         paragraphs: [
-          "One serving (28.5 mL concentrate + water to 400 mL) provides approximately:",
+          "One serving (28.5 mL concentrate + water to 400 mL) provides:",
           "120 kcal Energy / 29g Carbohydrates / 720 mg Electrolytes / 580 mg Amino Acids",
           "Accompanied by naturally occurring vitamins, trace elements, and fiber.",
           "We also retain functional micronutrients naturally present in the sap:",
@@ -215,7 +215,7 @@ const aboutBubbles = [
     paragraphs: [
       "NÜGEL Anti-Fog grew from another challenge familiar to regular swimmers: fogged goggles.",
       "It was developed around the actual wet, high-humidity environment of swimming, including situations where condensation, perspiration or small amounts of pool water reach the inside of the goggles.",
-      "Instead of spraying more product than the small lens surface needs, the precision drop applicator places a controlled amount directly on each lens. The idea is simple: effective clarity, precise application and less unnecessary waste.",
+      "Instead of spraying more product than the small lens surface needs, the precision drop applicator places a controlled amount directly on each lens. The idea is simple: effective clarity, precise application and no unnecessary waste.",
     ],
     imageCaption: null,
   },
@@ -1402,7 +1402,11 @@ Terima kasih!`;
                     alt={`NÜGEL Sports Drink Concentrate ${spotlightSize} mL`}
                     width={1122}
                     height={1402}
-                    className="h-[285px] w-auto object-contain drop-shadow-[0_30px_44px_rgba(0,0,0,0.36)] transition-all duration-300 sm:h-[330px] md:h-[380px] lg:h-[430px]"
+                    className={`w-auto object-contain drop-shadow-[0_30px_44px_rgba(0,0,0,0.36)] transition-all duration-300 ${
+                      spotlightSize === 200
+                        ? "h-[302px] scale-x-[0.9] sm:h-[350px] md:h-[402px] lg:h-[455px]"
+                        : "h-[285px] scale-x-[1.14] sm:h-[330px] md:h-[380px] lg:h-[430px]"
+                    }`}
                   />
 
                   <div
@@ -1484,7 +1488,7 @@ Terima kasih!`;
 
                       <p className="mt-4 text-sm leading-6 text-white/88">
                         Mix 1 serving (28.5 mL / 2 tbsp) with about 375 mL of water to
-                        prepare 400 mL of sports drink.
+                        prepare 400 mL of sports drink. It dissolves instantly.
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/78">
                         Use before, during and/or after training according to your
@@ -1758,7 +1762,7 @@ Terima kasih!`;
                     Measure. Mix. Ready.
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-white/88 md:text-base">
-                    A reusable measuring container designed to make preparing NÜGEL simple and consistent. It gives you one dedicated place to measure your concentrate and add water to prepare your sports drink.
+                    A reusable measuring container designed to make preparing NÜGEL simple and consistent. It gives you one dedicated place to measure the concentrate and add water to prepare your sports drink.
                   </p>
 
                   <div className="mt-4 grid gap-3 md:grid-cols-2">
@@ -1779,7 +1783,7 @@ Terima kasih!`;
                           Add water until the total reaches 60 mL.
                         </li>
                         <li className="list-disc">
-                          Close tightly, then shake until evenly mixed.
+                          Close tightly, then shake briefly.
                         </li>
                         <li className="list-disc">
                           Keep it sealed and use it on the same day.
@@ -1895,20 +1899,20 @@ Terima kasih!`;
                           </div>
                         </div>
                       </div>                    ) : id === "energy" ? (
-                      <div className="relative flex h-full w-full -translate-x-[6px] items-end justify-center pb-1 sm:-translate-x-[6px]">
+                      <div className="relative flex h-full w-full -translate-x-[12px] items-end justify-center pb-1 sm:-translate-x-[14px]">
                         <Image
                           src="/images/nugel-energy-200.png"
                           alt="NÜGEL Sports Drink Concentrate 200 ml"
                           width={1122}
                           height={1402}
-                          className="relative z-10 -mr-[46px] translate-x-5 h-[178px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 sm:-mr-[54px] sm:translate-x-6"
+                          className="relative z-10 -mr-[42px] translate-x-5 scale-x-[0.9] h-[204px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 sm:-mr-[48px] sm:translate-x-6"
                         />
                         <Image
                           src="/images/nugel-energy-515.png"
                           alt="NÜGEL Sports Drink Concentrate 515 ml"
                           width={1122}
                           height={1402}
-                          className="relative z-20 h-[210px] w-auto object-contain transition duration-500 group-hover:-translate-y-1"
+                          className="relative z-20 scale-x-[1.16] h-[182px] w-auto object-contain transition duration-500 group-hover:-translate-y-1"
                         />
                       </div>
                     ) : id === "antifog" ? (
@@ -2385,6 +2389,37 @@ Bought separately, the three products total ${formatRupiah(STARTER_REGULAR_PRICE
 - 515 mL makes 18 × 400 mL* = 7.2 L total sports drink.
 
 *How to make 400 mL: Mix one serving (28.5 mL concentrate) with about 375 mL water.`,
+              ],
+              [
+                "How long does it take to dissolve the concentrate in water?",
+                "It dissolves instantly with 2-3 shakes or stirs — no clumps, no waiting, unlike powder.",
+              ],
+              [
+                "Is the prepared NÜGEL Sports Drink isotonic?",
+                `Yes. When prepared as directed (28.5 mL concentrate + 375 mL water = 400 mL), NÜGEL is isotonic.
+
+How we calculate it:
+
+A drink is hypotonic, isotonic, or hypertonic depending on its osmolality. An isotonic drink is 270–330 mOsm/kg, similar to blood, which means the drink has the same concentration as your body fluids for optimal fluid balance and fast absorption.
+
+Per 400 mL prepared drink:
+
+1. Carbohydrates: 27 g sugar = 197.2 mOsm/kg
+
+2. Electrolytes:
+   - Sodium 190 mg = 20.6 mOsm/kg
+   - Potassium 190 mg = 12.1 mOsm/kg
+   - Chloride 310 mg = 21.8 mOsm/kg
+   - Other minerals (Mg, Ca, P) = 5.0 mOsm/kg
+   - Total Electrolytes = 59.6 mOsm/kg
+
+3. Fiber + Protein: 2.0 mOsm/kg
+
+4. Organic acids in sap + lime juice: 21.2 mOsm/kg
+
+Total as consumed = 197.2 + 59.6 + 2.0 + 21.2 = 280 mOsm/kg = ISOTONIC
+
+The sugar in the sap naturally splits into glucose + fructose (1:1) after consumption. This is ideal as it temporarily doubles its carbohydrate osmolarity, and is absorbed through different pathways (SGLT1 & GLUT5), which is how dual-carb isotonic drinks drive fast water and energy absorption — the same principle used in pro endurance formulas.`,
               ],
               [
                 "Is NÜGEL halal?",
