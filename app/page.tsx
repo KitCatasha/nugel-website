@@ -208,7 +208,7 @@ const aboutBubbles = [
     imageCaption: null,
   },
   {
-    title: "Clear Vision. Less Waste.",
+    title: "Clear Vision. No Waste.",
     eyebrow: "NÜGEL Anti-Fog",
     preview:
       "A precision-drop anti-fog solution developed around the wet, high-humidity conditions swimmers actually experience.",
@@ -1212,7 +1212,7 @@ Terima kasih!`;
                     },
                     {
                       name: "Measuring Container ",
-                      detail: "Reusable bottle for your swim routine",
+                      detail: "Reusable container for your swim routine",
                       productIndex: 2,
                     },
                   ].map((item) => (
@@ -1483,8 +1483,8 @@ Terima kasih!`;
                       </div>
 
                       <p className="mt-4 text-sm leading-6 text-white/88">
-                        Mix 1 serving (28.5 mL / 2 tbsp) with 375 mL of water to
-                        prepare approximately 400 mL of sports drink.
+                        Mix 1 serving (28.5 mL / 2 tbsp) with about 375 mL of water to
+                        prepare 400 mL of sports drink.
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/78">
                         Use before, during and/or after training according to your
@@ -1594,7 +1594,7 @@ Terima kasih!`;
                           <div className="mt-3 border-t border-white/14 pt-3">
                             <p className="text-sm font-black text-white">7 servings</p>
                             <p className="mt-2 text-xs leading-5 text-white/62">
-                              Makes approx.
+                              Makes
                               <br />
                               <span className="font-bold text-white/88">2.8 L</span> of prepared
                               <br />
@@ -1609,7 +1609,7 @@ Terima kasih!`;
                           <div className="mt-3 border-t border-white/14 pt-3">
                             <p className="text-sm font-black text-white">18 servings</p>
                             <p className="mt-2 text-xs leading-5 text-white/62">
-                              Makes approx.
+                              Makes 
                               <br />
                               <span className="font-bold text-white/88">7.2 L</span> of prepared
                               <br />
@@ -1677,10 +1677,7 @@ Terima kasih!`;
                   </p>
 
                   <p className="mt-3 text-sm leading-7 text-white/82 md:text-base">
-                    Unlike spray formats that can send product onto the frame
-                    or outside the lens, NÜGEL uses a precision drop
-                    applicator so the anti-fog goes directly where it is
-                    needed, with less unnecessary waste.
+                    Unlike sprays that waste the product on the frame and outside the lens, NÜGEL uses a precision drop applicator — so the product goes exactly onto the lens.
                   </p>
 
                   <div className="mt-4 grid gap-3 md:grid-cols-2">
@@ -1689,11 +1686,7 @@ Terima kasih!`;
                         1 drop per lens
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/82">
-                        Apply 1 drop to the inside of each clean lens, spread it
-                        thinly and evenly using a clean finger, and allow the
-                        layer to settle for a few minutes. For racing, briefly
-                        dip the goggles in water, let excess water drain, then
-                        put them on.
+                        Apply 1 drop to the inside of each clean lens, spread thinly and evenly with a clean finger, let it settle for a few minutes, then put the goggles on. For racing, before putting on, briefly dip goggles in water and shake off excess water.
                       </p>
                     </div>
 
@@ -1765,10 +1758,7 @@ Terima kasih!`;
                     Measure. Mix. Ready.
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-white/88 md:text-base">
-                    A reusable measuring container designed to make preparing
-                    NÜGEL simple and consistent. It gives you one dedicated
-                    place to measure your concentrate, add water and prepare
-                    your drink before getting in the pool.
+                    A reusable measuring container designed to make preparing NÜGEL simple and consistent. It gives you one dedicated place to measure your concentrate and add water to prepare your sports drink.
                   </p>
 
                   <div className="mt-4 grid gap-3 md:grid-cols-2">
