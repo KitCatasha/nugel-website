@@ -112,7 +112,7 @@ const aboutBubbles = [
       "NÜGEL was created from a swimmer’s perspective — practical products built around real needs in the water.",
     paragraphs: [
       "NÜGEL was created from a swimmer’s perspective, with a simple idea: develop practical products that address real needs in the water.",
-      "The brand was developed by Dieter Machate (born 1959), a competitive Masters swimmer and Gold Medalist at the 2024 World Masters Championships. Years of regular training and competition gave him firsthand experience with two recurring challenges: maintaining energy and hydration through demanding sessions, and keeping goggles clear so he could stay focused in the water.",
+      "The brand was developed by Dieter Machate, a competitive Masters swimmer and Gold Medalist at the 2024 World Masters Championships. Years of regular training and competition gave him firsthand experience with two recurring challenges: maintaining energy and hydration through demanding sessions, and keeping goggles clear so he could stay focused in the water.",
       "Rather than simply creating products for swimmers, Dieter wanted to develop solutions that he himself would use as part of his own training and competition routine. That thinking became the foundation of NÜGEL.",
     ],
     images: [
@@ -126,7 +126,7 @@ const aboutBubbles = [
         src: "/images/dieter-doha-medal-hd.jpeg",
         alt: "Dieter Machate with his gold medal at the World Aquatics Masters Championships Doha 2024",
         caption:
-          "Dieter Machate with his gold medal at the World Aquatics Masters Championships Doha 2024.",
+          "Dieter Machate, a gold medalist at the World Aquatics Masters Championships Doha 2024.",
       },
     ],
     imageCaption: null,
@@ -160,7 +160,7 @@ const aboutBubbles = [
       "Natural energy, dual-source carbohydrates, six key electrolytes and a broader nutritional profile in every serving.",
     richSections: [
       {
-        heading: "Natural Energy. Electrolytes. More Than Just Fuel.",
+        heading: "Natural Energy and Electrolytes; More Than Just Fuel.",
         paragraphs: [
           "NÜGEL Sports Drink Concentrate takes a different approach to conventional sports nutrition. Instead of building a drink around isolated sugars and powders, we start with 95% coconut palm sap concentrate, sea salt, and lime juice.",
           "Coconut palm sap — nira kelapa — is the naturally sweet liquid from coconut palm blossoms. We carefully process it to retain its natural nutritional matrix: sugars, minerals, amino acids, and fiber. Sea salt complements it with additional minerals and trace elements. Together, they form the complete foundation for a sports drink designed for swimmers and other endurance athletes.",
@@ -176,7 +176,7 @@ const aboutBubbles = [
       {
         heading: "SIX KEY ELECTROLYTES FOR HYDRATION",
         paragraphs: [
-          "NÜGEL is more than just energy. Each serving contains 720 mg of electrolytes with six key minerals:",
+          "NÜGEL is more than just energy. Each serving contains 713 mg of electrolytes with six key minerals:",
           "Sodium, Potassium, Chloride, Magnesium, Calcium, and Phosphorus.",
           "Together with water, they help maintain fluid and mineral balance during activity."
         ],
@@ -186,7 +186,7 @@ const aboutBubbles = [
         heading: "COMPLETE PROFILE IN EVERY SERVING",
         paragraphs: [
           "One serving (28.5 mL concentrate + water to 400 mL) provides:",
-          "120 kcal Energy / 29g Carbohydrates / 720 mg Electrolytes / 580 mg Amino Acids",
+          "120 kcal Energy / 29g Carbohydrates / 713 mg Electrolytes / 580 mg Amino Acids",
           "Accompanied by naturally occurring vitamins, trace elements, and fiber.",
           "We also retain functional micronutrients naturally present in the sap:",
         ],
@@ -204,29 +204,29 @@ const aboutBubbles = [
           "No isolated energy boost. Just a broader nutritional profile from natural sources, supplied as a concentrate so you can prepare it fresh when you need it.",
       },
     ],
-    stats: ["120 kcal", "29 g carbs", "720 mg electrolytes"],
+    stats: ["120 kcal", "29 g carbs", "713 mg electrolytes"],
     imageCaption: null,
   },
   {
-    title: "Clear Vision. No Waste.",
+    title: "Clear Vision and No Waste.",
     eyebrow: "NÜGEL Anti-Fog",
     preview:
       "A precision-drop anti-fog solution developed around the wet, high-humidity conditions swimmers actually experience.",
     paragraphs: [
       "NÜGEL Anti-Fog grew from another challenge familiar to regular swimmers: fogged goggles.",
       "It was developed around the actual wet, high-humidity environment of swimming, including situations where condensation, perspiration or small amounts of pool water reach the inside of the goggles.",
-      "Instead of spraying more product than the small lens surface needs, the precision drop applicator places a controlled amount directly on each lens. The idea is simple: effective clarity, precise application and no unnecessary waste.",
+      "Instead of spraying more product than the small lens surface needs, the precision drop applicator places a controlled amount directly on each lens. The idea is simple: effective clarity, precise application and no waste.",
     ],
     imageCaption: null,
   },
   {
-    title: "Two Products. One Purpose.",
+    title: "Two Products, One Purpose.",
     eyebrow: "The NÜGEL philosophy",
     preview:
       "One supports the swimmer from within. The other helps keep the swimmer focused in the water.",
     paragraphs: [
-      "NÜGEL Sports Drink Concentrate and NÜGEL Anti-Fog serve very different functions, but they share the same origin: real needs identified through years spent in the water.",
-      "One supports the swimmer from within by providing energy and hydration. The other supports the swimmer in the water by helping maintain clear vision and reduce distraction.",
+      "NÜGEL Sports Drink Concentrate and NÜGEL Anti-Fog serve very different functions, but they share the same origin: real needs identified through years spent in water.",
+      "One supports the swimmer from within by providing energy and hydration. The other supports the swimmer in water by helping maintain clear vision and reduce distraction.",
       "Together they reflect the same NÜGEL philosophy: practical, swimmer-focused essentials developed from firsthand experience. NÜGEL is not about making swimming more complicated — it is about making some of the essentials simpler.",
     ],
     imageCaption: null,
@@ -1076,7 +1076,7 @@ Terima kasih!`;
                 className="relative hidden min-h-[540px] origin-center lg:flex lg:items-center lg:justify-center"
                 style={{ willChange: "transform" }}
               >
-                <div className="absolute left-[68%] top-[24%] z-40 -translate-x-1/2 -translate-y-1/2">
+                <div className="absolute left-[65%] top-[24%] z-40 -translate-x-1/2 -translate-y-1/2">
                   <p
                     className="font-sans text-[1.1rem] font-black uppercase leading-[1.02] tracking-[0.12em] text-[#07131a] xl:text-[1.28rem]"
                     style={{
@@ -1202,7 +1202,7 @@ Terima kasih!`;
                   {[
                     {
                       name: "Sports Drink Concentrate",
-                      detail: "Maintain your energy and hydration",
+                      detail: "Maintain your energy and hydration levels",
                       productIndex: 0,
                     },
                     {
@@ -1291,7 +1291,7 @@ Terima kasih!`;
                           alt="NÜGEL Sports Drink Concentrate 200 ml"
                           width={1122}
                           height={1402}
-                          className="h-[295px] w-auto object-contain drop-shadow-[0_35px_45px_rgba(0,0,0,0.38)] sm:h-[390px] md:h-[440px] lg:h-[460px] xl:h-[500px]"
+                          className="h-[315px] w-auto object-contain drop-shadow-[0_35px_45px_rgba(0,0,0,0.38)] sm:h-[420px] md:h-[470px] lg:h-[495px] xl:h-[535px]"
                           priority
                         />
                       </div>
@@ -1301,7 +1301,7 @@ Terima kasih!`;
                   {/* Front-center: the mixing cup is the visual anchor of the bundle. */}
                   <div
                     ref={cupMoverRef}
-                    className="absolute bottom-[-1%] left-[50%] z-40 -translate-x-1/2 will-change-transform"
+                    className="absolute bottom-[-1%] left-[52%] z-40 -translate-x-1/2 will-change-transform"
                   >
                     <div className="nugel-starter-float-cup">
                       <div style={{ transform: "rotate(0deg)" }}>
@@ -1443,16 +1443,16 @@ Terima kasih!`;
                   </p>
 
                   <h3 className="mt-3 text-3xl font-black leading-[1.03] tracking-[-0.035em] md:text-[2.35rem]">
-                    Quality Ingredients. Real Nutrition. More Than Just Sugar & Water.
+                    Quality Ingredients and Real Nutrition; More Than Just Sugar & Water.
                   </h3>
 
                   <div className="mt-4 max-w-5xl space-y-3 text-sm leading-7 text-white/88 md:text-base">
                     <p>
-                      NÜGEL is made with 95% coconut palm sap concentrate, sea salt and lime juice. Coconut palm sap is
+                      NÜGEL sports drink concentrate is made with 95% coconut palm sap concentrate, sea salt and lime juice. Coconut palm sap is
                       also known in
                       Indonesia as <span className="italic">nira kelapa</span>. Coconut sap is
-                      the naturally sweet liquid collected from coconut palm blossoms. It gives
-                      NÜGEL its natural sugars, minerals and other nutrients.
+                      a naturally sweet liquid collected from coconut palm blossoms. It gives
+                      NÜGEL sports drink concentrate its natural sugars, minerals and other nutrients.
                     </p>
 
                     <p>
@@ -1488,7 +1488,7 @@ Terima kasih!`;
 
                       <p className="mt-4 text-sm leading-6 text-white/88">
                         Mix 1 serving (28.5 mL / 2 tbsp) with about 375 mL of water to
-                        prepare 400 mL of sports drink. It dissolves instantly.
+                        prepare 400 mL of sports drink. Shake briefly — concentrate dissolves instantly.
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/78">
                         Use before, during and/or after training according to your
@@ -1549,7 +1549,7 @@ Terima kasih!`;
                         {[
                           ["Energy", "120 kcal"],
                           ["Carbohydrates", "29 g"],
-                          ["Electrolytes", "720 mg"],
+                          ["Electrolytes", "713 mg"],
                           ["Amino acids", "580 mg"],
                         ].map(([label, value]) => (
                           <div
@@ -1668,20 +1668,14 @@ Terima kasih!`;
                     NÜGEL Anti-Fog Drops 
                   </p>
                   <h3 className="mt-3 text-3xl font-black leading-[1.03] tracking-[-0.035em] md:text-[2.35rem]">
-                    Effective clarity without the overspray.
+                    Maximum clarity with just one drop.
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-white/88 md:text-base">
-                    NÜGEL is designed for the wet, high-humidity environment of
-                    swimming and helps maintain clearer vision even when the
-                    inside of the goggles becomes slightly wet from
-                    condensation, perspiration or small amounts of pool water.
-                    Its hydrophilic layer helps moisture spread more evenly
-                    across the lens instead of gathering into visible fog
-                    droplets.
-                  </p>
-
-                  <p className="mt-3 text-sm leading-7 text-white/82 md:text-base">
-                    Unlike sprays that waste the product on the frame and outside the lens, NÜGEL uses a precision drop applicator — so the product goes exactly onto the lens.
+                    NÜGEL anti-fog drops is designed for the wet, high-humidity swimming environment.
+                    It maintains clear vision despite minor moisture, condensation, or perspiration
+                    inside the goggles. Its hydrophilic coating distributes moisture evenly across the lens
+                    surface, preventing droplet formation and fogging. NÜGEL anti-fog drops comes with drop
+                    applicator which ensures precision product application onto the lens.
                   </p>
 
                   <div className="mt-4 grid gap-3 md:grid-cols-2">
@@ -1690,7 +1684,7 @@ Terima kasih!`;
                         1 drop per lens
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/82">
-                        Apply 1 drop to the inside of each clean lens, spread thinly and evenly with a clean finger, let it settle for a few minutes, then put the goggles on. For racing, before putting on, briefly dip goggles in water and shake off excess water.
+                        Apply 1 drop to the inner surface of each clean lens, spread evenly with a clean finger, allow it tosettle for a few minutes, then wear the goggles. Prior to racing, briefly dip the goggles in water and shake off any excess water. 
                       </p>
                     </div>
 
@@ -1759,10 +1753,10 @@ Terima kasih!`;
                     NÜGEL Measuring Container
                   </p>
                   <h3 className="mt-3 text-3xl font-black leading-[1.03] tracking-[-0.035em] md:text-[2.35rem]">
-                    Measure. Mix. Ready.
+                    Measure, mix, ready.
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-white/88 md:text-base">
-                    A reusable measuring container designed to make preparing NÜGEL simple and consistent. It gives you one dedicated place to measure the concentrate and add water to prepare your sports drink.
+                    A reusable measuring container designed for consistent and effortless preparation of sports drink.
                   </p>
 
                   <div className="mt-4 grid gap-3 md:grid-cols-2">
@@ -1866,53 +1860,53 @@ Terima kasih!`;
                       <div className="absolute inset-0 flex items-center justify-center">
                         <div className="relative h-[184px] w-[258px] max-w-[94%] translate-y-1">
                           {/* Back-left: Energy */}
-                          <div className="absolute bottom-[8px] left-0 z-10">
+                          <div className="absolute bottom-0 left-0 z-10">
                             <Image
                               src="/images/nugel-energy-200.png"
                               alt=""
                               width={1122}
                               height={1402}
-                              className="h-[174px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 group-hover:scale-[1.02]"
+                              className="h-[190px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 group-hover:scale-[1.02]"
                             />
                           </div>
 
                           {/* Front-center: Mixing cup */}
-                          <div className="absolute bottom-0 left-1/2 z-30 -translate-x-1/2">
+                          <div className="absolute bottom-[-6px] left-[52%] z-30 -translate-x-1/2">
                             <Image
                               src="/images/nugel-mixing-cup.png"
                               alt=""
                               width={1225}
                               height={1284}
-                              className="h-[98px] w-auto object-contain drop-shadow-[0_12px_16px_rgba(0,0,0,0.18)] transition duration-500 group-hover:-translate-y-1 group-hover:scale-[1.02]"
+                              className="h-[82px] w-auto object-contain drop-shadow-[0_12px_16px_rgba(0,0,0,0.18)] transition duration-500 group-hover:-translate-y-1 group-hover:scale-[1.02]"
                             />
                           </div>
 
                           {/* Back-right: Anti-Fog, separated from the central pair */}
-                          <div className="absolute bottom-[10px] right-[40px] z-10">
+                          <div className="absolute bottom-0 right-[30px] z-10">
                             <Image
                               src="/images/nugel-antifog.png"
                               alt=""
                               width={260}
                               height={450}
-                              className="h-[77px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 group-hover:scale-[1.02]"
+                              className="h-[90px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 group-hover:scale-[1.02]"
                             />
                           </div>
                         </div>
                       </div>                    ) : id === "energy" ? (
-                      <div className="relative flex h-full w-full -translate-x-[12px] items-end justify-center pb-1 sm:-translate-x-[14px]">
+                      <div className="relative flex h-full w-full items-center justify-center">
                         <Image
                           src="/images/nugel-energy-200.png"
                           alt="NÜGEL Sports Drink Concentrate 200 ml"
                           width={1122}
                           height={1402}
-                          className="relative z-10 -mr-[42px] translate-x-5 scale-x-[0.9] h-[204px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 sm:-mr-[48px] sm:translate-x-6"
+                          className="relative z-10 -mr-[42px] translate-x-[3px] scale-x-[0.9] h-[204px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 sm:-mr-[48px]"
                         />
                         <Image
                           src="/images/nugel-energy-515.png"
                           alt="NÜGEL Sports Drink Concentrate 515 ml"
                           width={1122}
                           height={1402}
-                          className="relative z-20 scale-x-[1.16] h-[182px] w-auto object-contain transition duration-500 group-hover:-translate-y-1"
+                          className="relative z-20 -translate-x-[20px] translate-y-[14px] scale-x-[1.16] h-[175px] w-auto object-contain transition duration-500 group-hover:-translate-x-[18px] group-hover:translate-y-[6px]"
                         />
                       </div>
                     ) : id === "antifog" ? (
@@ -2396,30 +2390,38 @@ Bought separately, the three products total ${formatRupiah(STARTER_REGULAR_PRICE
               ],
               [
                 "Is the prepared NÜGEL Sports Drink isotonic?",
-                `Yes. When prepared as directed (28.5 mL concentrate + 375 mL water = 400 mL), NÜGEL is isotonic.
+                `Yes. NÜGEL is formulated to fall within the isotonic range when prepared as directed (28.5 mL concentrate + 375 mL water ≈ 400 mL).
 
-How we calculate it:
+How we estimated it:
 
-A drink is hypotonic, isotonic, or hypertonic depending on its osmolality. An isotonic drink is 270–330 mOsm/kg, similar to blood, which means the drink has the same concentration as your body fluids for optimal fluid balance and fast absorption.
+A drink is hypotonic, isotonic or hypertonic depending largely on its osmolality. Isotonic sports drinks are commonly described as having an osmolality of approximately 270–330 mOsm/kg, close to the concentration of body fluids.
 
-Per 400 mL prepared drink:
+Per approximately 400 mL prepared drink:
 
-1. Carbohydrates: 27 g sugar = 197.2 mOsm/kg
+1. Carbohydrates:
+27 g sugar ≈ 197.2 mOsm/kg
 
 2. Electrolytes:
-   - Sodium 190 mg = 20.6 mOsm/kg
-   - Potassium 190 mg = 12.1 mOsm/kg
-   - Chloride 310 mg = 21.8 mOsm/kg
-   - Other minerals (Mg, Ca, P) = 5.0 mOsm/kg
-   - Total Electrolytes = 59.6 mOsm/kg
 
-3. Fiber + Protein: 2.0 mOsm/kg
+Sodium 190 mg ≈ 20.6 mOsm/kg
+Potassium 190 mg ≈ 12.1 mOsm/kg
+Chloride 310 mg ≈ 21.8 mOsm/kg
+Other minerals (Mg, Ca, P) ≈ 5.0 mOsm/kg
+Total Electrolytes ≈ 59.6 mOsm/kg
 
-4. Organic acids in sap + lime juice: 21.2 mOsm/kg
+3. Fiber + Protein:
+≈ 2.0 mOsm/kg
 
-Total as consumed = 197.2 + 59.6 + 2.0 + 21.2 = 280 mOsm/kg = ISOTONIC
+4. Organic acids from coconut palm sap, lime juice and added acids:
+≈ 21.2 mOsm/kg
 
-The sugar in the sap naturally splits into glucose + fructose (1:1) after consumption. This is ideal as it temporarily doubles its carbohydrate osmolarity, and is absorbed through different pathways (SGLT1 & GLUT5), which is how dual-carb isotonic drinks drive fast water and energy absorption — the same principle used in pro endurance formulas.`,
+Estimated total:
+
+197.2 + 59.6 + 2.0 + 21.2 ≈ 280 mOsm/kg
+
+This formulation-based estimate places the prepared NÜGEL drink within the commonly used isotonic range of approximately 270–330 mOsm/kg. Actual osmolality may vary and can be confirmed by laboratory measurement.
+
+The sugar in coconut palm sap is mainly sucrose, which is broken down after consumption into glucose and fructose in approximately a 1:1 ratio. These are then absorbed through different intestinal transport pathways—primarily SGLT1 for glucose and GLUT5 for fructose. This dual-carbohydrate principle is widely used in pro endurance sports nutrition formulations.`,
               ],
               [
                 "Is NÜGEL halal?",
@@ -3042,8 +3044,8 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
         }
 
         .hero-product-hotspot-energy .hero-product-tooltip {
-          top: -68px;
-          left: 56%;
+          top: -50px;
+          left: 50%;
         }
 
         .hero-product-hotspot-container {
@@ -3055,6 +3057,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
 
         .hero-product-hotspot-container .hero-product-tooltip {
           top: -30px;
+          left: 45%;
           min-width: 0;
           width: 92px;
           white-space: normal;
@@ -3068,7 +3071,8 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
         }
 
         .hero-product-hotspot-antifog .hero-product-tooltip {
-          top: -22px;
+          top: -12px;
+          left: 42%;
         }
 
         .hero-product-tooltip {
