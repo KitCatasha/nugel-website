@@ -49,7 +49,7 @@ const WHATSAPP_NUMBER = "6281234567890";
 const WHATSAPP_DISPLAY = "+62 812-3456-7890";
 
 
-const searchItems: Array<{
+const searchItemsEn: Array<{
   title: string;
   description: string;
   href: string;
@@ -104,7 +104,56 @@ const searchItems: Array<{
 ];
 
 
-const aboutBubbles = [
+const searchItemsId: typeof searchItemsEn = [
+  {
+    title: "Paket Pemula",
+    description: "Apa saja yang termasuk dalam NÜGEL Starter Kit.",
+    href: "#starter",
+    keywords: "paket pemula starter kit perlengkapan energi anti-fog antifog wadah takar gelas",
+  },
+  {
+    title: "Konsentrat Minuman Olahraga NÜGEL",
+    description: "Ukuran 200 mL dan 515 mL, nutrisi, serta cara penggunaan.",
+    href: "#products",
+    keywords: "konsentrat minuman olahraga sports drink 200 515 ml nutrisi bahan cara pakai energi",
+    productIndex: 0,
+  },
+  {
+    title: "Tetes Anti-Fog",
+    description: "Detail produk dan cara menggunakan NÜGEL Anti-Fog.",
+    href: "#products",
+    keywords: "anti fog antifog tetes kacamata renang 10 ml cara pakai",
+    productIndex: 1,
+  },
+  {
+    title: "Wadah Takar",
+    description: "Detail produk, perawatan, dan cara menggunakan wadah takar.",
+    href: "#products",
+    keywords: "wadah takar gelas ukur shaker cara pakai perawatan",
+    productIndex: 2,
+  },
+  {
+    title: "Belanja",
+    description: "Beli Paket Pemula atau produk NÜGEL secara satuan.",
+    href: "#shop",
+    keywords: "belanja beli harga keranjang pesan paket energi antifog wadah",
+  },
+  {
+    title: "Tentang NÜGEL",
+    description: "Pelajari lebih lanjut tentang merek dan cerita NÜGEL.",
+    href: "#about",
+    keywords: "tentang cerita merek brand nilai nugel",
+  },
+  {
+    title: "FAQ",
+    description: "Pertanyaan umum tentang produk, pemesanan, dan pengiriman.",
+    href: "#faq",
+    keywords: "faq pertanyaan pengiriman pesan order paket pemula satuan",
+  },
+];
+
+
+const aboutBubblesEn = [
   {
     title: "Born from Swimming",
     eyebrow: "NÜGEL story",
@@ -234,7 +283,161 @@ const aboutBubbles = [
 ] as const;
 
 
-export default function Home() {
+const aboutBubblesId = [
+  {
+    title: "Lahir dari Dunia Renang",
+    eyebrow: "Cerita NÜGEL",
+    preview:
+      "NÜGEL diciptakan dari sudut pandang seorang perenang — produk praktis yang dibuat berdasarkan kebutuhan nyata di dalam air.",
+    paragraphs: [
+      "NÜGEL diciptakan dari sudut pandang seorang perenang, dengan satu ide sederhana: mengembangkan produk praktis yang menjawab kebutuhan nyata di dalam air.",
+      "Merek ini dikembangkan oleh Dieter Machate, perenang Masters kompetitif dan peraih Medali Emas pada World Masters Championships 2024. Bertahun-tahun berlatih dan berkompetisi memberinya pengalaman langsung dengan dua tantangan yang terus berulang: menjaga energi dan hidrasi selama sesi yang berat, serta menjaga kacamata renang tetap jernih agar fokus di dalam air.",
+      "Alih-alih sekadar membuat produk untuk perenang, Dieter ingin mengembangkan solusi yang juga akan ia gunakan sendiri dalam rutinitas latihan dan kompetisinya. Pemikiran inilah yang menjadi dasar NÜGEL.",
+    ],
+    images: [
+      {
+        src: "/images/dieter-doha-podium.jpeg",
+        alt: "Dieter Machate di podium juara pertama World Aquatics Masters Championships Doha 2024",
+        caption:
+          "Dieter Machate di podium juara pertama World Aquatics Masters Championships Doha 2024.",
+      },
+      {
+        src: "/images/dieter-doha-medal-hd.jpeg",
+        alt: "Dieter Machate dengan medali emasnya di World Aquatics Masters Championships Doha 2024",
+        caption:
+          "Dieter Machate, peraih medali emas World Aquatics Masters Championships Doha 2024.",
+      },
+    ],
+    imageCaption: null,
+  },
+  {
+    title: "Awal Mula Konsentrat",
+    eyebrow: "Dari nira menjadi energi",
+    preview:
+      "Proses nira aren yang dipatenkan menjadi titik awal pendekatan berbahan alami untuk nutrisi olahraga.",
+    paragraphs: [
+      "Jauh sebelum NÜGEL, Dieter bekerja dengan nira dan mengembangkan metode pengolahan berpaten yang dirancang untuk mempertahankan komponen nutrisi alaminya selama proses pemekatan.",
+      "Konsentrat nira yang dihasilkan mempertahankan profil nutrisi yang luas, dengan lebih dari 50 makro- dan mikronutrien alami yang telah diidentifikasi dan didokumentasikan.",
+      "Sebagai atlet, Dieter melihat peluang untuk membawa pengalaman tersebut ke dalam nutrisi olahraga. NÜGEL Sports Drink Concentrate berkembang dari gagasan itu, dengan 95% formulanya berbasis konsentrat nira kelapa dan garam laut.",
+    ],
+    images: [
+      {
+        src: "/images/nugel-palm-sap-process.jpeg",
+        alt: "Konsentrat nira sedang dituangkan saat proses pengolahan",
+        caption:
+          "Konsentrat nira — bagian dari cerita bahan dan proses di balik NÜGEL Sports Drink Concentrate.",
+      },
+    ],
+    imageCaption: null,
+    learnMoreUrl: "https://coconutrate.com/",
+    learnMoreLabel: "Ingin membaca lebih lanjut tentang proses nira? Kunjungi Coconutrate.com",
+  },
+  {
+    title: "Energi & Hidrasi",
+    eyebrow: "Di dalam Konsentrat NÜGEL",
+    preview:
+      "Energi alami, karbohidrat dua sumber, enam elektrolit utama, dan profil nutrisi yang lebih luas dalam setiap sajian.",
+    richSections: [
+      {
+        heading: "Energi Alami dan Elektrolit; Lebih dari Sekadar Bahan Bakar.",
+        paragraphs: [
+          "NÜGEL Sports Drink Concentrate menggunakan pendekatan berbeda dari nutrisi olahraga konvensional. Alih-alih membangun minuman dari gula terisolasi dan bubuk, kami memulai dengan 95% konsentrat nira kelapa, garam laut, dan air jeruk nipis.",
+          "Nira kelapa adalah cairan manis alami dari bunga kelapa. Kami mengolahnya dengan hati-hati untuk mempertahankan matriks nutrisinya: gula, mineral, asam amino, dan serat. Garam laut melengkapinya dengan mineral tambahan dan unsur jejak. Bersama-sama, keduanya menjadi dasar lengkap untuk minuman olahraga yang dirancang bagi perenang dan atlet daya tahan lainnya.",
+        ],
+      },
+      {
+        heading: "KARBOHIDRAT DUA SUMBER UNTUK ENERGI BERKELANJUTAN",
+        paragraphs: [
+          "Setiap sajian 28,5 mL menyediakan 29 g karbohidrat dan 120 kkal. Gula secara alami hadir sebagai glukosa dan fruktosa dengan rasio 1:1.",
+          "Hal ini penting untuk daya tahan: glukosa dan fruktosa menggunakan jalur transportasi usus yang berbeda. Riset menunjukkan bahwa menggabungkannya dapat meningkatkan jumlah karbohidrat yang tersedia untuk oksidasi selama olahraga berkepanjangan dibandingkan glukosa saja — terutama saat kebutuhan energi tinggi. Nira juga mempertahankan serat pangan alami, termasuk inulin.",
+        ],
+      },
+      {
+        heading: "ENAM ELEKTROLIT UTAMA UNTUK HIDRASI",
+        paragraphs: [
+          "NÜGEL bukan sekadar sumber energi. Setiap sajian mengandung 713 mg elektrolit dengan enam mineral utama:",
+          "Natrium, Kalium, Klorida, Magnesium, Kalsium, dan Fosfor.",
+          "Bersama air, mineral-mineral ini membantu mempertahankan keseimbangan cairan dan mineral selama aktivitas.",
+        ],
+        boldTerms: ["Natrium", "Kalium", "Klorida", "Magnesium", "Kalsium", "Fosfor"],
+      },
+      {
+        heading: "PROFIL LENGKAP DALAM SETIAP SAJIAN",
+        paragraphs: [
+          "Satu sajian (28,5 mL konsentrat + air hingga total 400 mL) menyediakan:",
+          "120 kkal Energi / 29 g Karbohidrat / 713 mg Elektrolit / 580 mg Asam Amino",
+          "Disertai vitamin, unsur jejak, dan serat yang secara alami terdapat di dalam bahan.",
+          "Kami juga mempertahankan mikronutrien fungsional yang secara alami terdapat dalam nira:",
+        ],
+        bullets: [
+          {
+            label: "Niasin (Vitamin B3)",
+            text: "berkontribusi pada metabolisme penghasil energi yang normal — yaitu cara tubuh mengubah nutrisi menjadi energi yang dapat digunakan.",
+          },
+          {
+            label: "Vitamin C & Zinc",
+            text: "berkontribusi pada fungsi normal sistem imun, relevan bagi siapa pun dengan jadwal latihan yang rutin dan menuntut.",
+          },
+        ],
+        closing:
+          "Bukan dorongan energi terisolasi. Hanya profil nutrisi yang lebih luas dari sumber alami, dalam bentuk konsentrat agar dapat disiapkan segar saat dibutuhkan.",
+      },
+    ],
+    stats: ["120 kkal", "29 g karbohidrat", "713 mg elektrolit"],
+    imageCaption: null,
+  },
+  {
+    title: "Penglihatan Jernih Tanpa Pemborosan.",
+    eyebrow: "NÜGEL Anti-Fog",
+    preview:
+      "Larutan anti-fog dengan aplikasi tetes presisi yang dikembangkan untuk kondisi basah dan lembap tinggi yang benar-benar dialami perenang.",
+    paragraphs: [
+      "NÜGEL Anti-Fog lahir dari tantangan lain yang sangat familiar bagi perenang rutin: kacamata renang yang berembun.",
+      "Produk ini dikembangkan untuk kondisi nyata saat berenang yang basah dan memiliki kelembapan tinggi, termasuk ketika kondensasi, keringat, atau sedikit air kolam masuk ke bagian dalam kacamata.",
+      "Alih-alih menyemprotkan produk lebih banyak daripada yang dibutuhkan permukaan lensa yang kecil, aplikator tetes presisi menempatkan jumlah yang terkontrol langsung pada setiap lensa. Idenya sederhana: kejernihan yang efektif, aplikasi presisi, dan tanpa pemborosan.",
+    ],
+    imageCaption: null,
+  },
+  {
+    title: "Dua Produk, Satu Tujuan.",
+    eyebrow: "Filosofi NÜGEL",
+    preview:
+      "Satu mendukung perenang dari dalam. Yang lain membantu menjaga fokus perenang di dalam air.",
+    paragraphs: [
+      "NÜGEL Sports Drink Concentrate dan NÜGEL Anti-Fog memiliki fungsi yang sangat berbeda, tetapi keduanya berasal dari sumber yang sama: kebutuhan nyata yang ditemukan melalui bertahun-tahun berada di dalam air.",
+      "Satu mendukung perenang dari dalam dengan menyediakan energi dan hidrasi. Yang lain mendukung perenang di dalam air dengan membantu mempertahankan penglihatan yang jernih dan mengurangi gangguan.",
+      "Bersama-sama, keduanya mencerminkan filosofi NÜGEL yang sama: produk esensial praktis yang berfokus pada perenang dan dikembangkan dari pengalaman langsung. NÜGEL bukan tentang membuat aktivitas berenang menjadi lebih rumit — melainkan membuat beberapa hal penting menjadi lebih sederhana.",
+    ],
+    imageCaption: null,
+  },
+] as const;
+
+
+export default function Home({
+  language = "en",
+}: {
+  language?: "en" | "id";
+}) {
+  const isIndonesian = language === "id";
+  const t = (english: string, indonesian: string) =>
+    isIndonesian ? indonesian : english;
+  const searchItems = isIndonesian ? searchItemsId : searchItemsEn;
+  const aboutBubbles = isIndonesian ? aboutBubblesId : aboutBubblesEn;
+
+  const productDisplayName = (id: ProductId) => {
+    if (!isIndonesian) return products[id].name;
+
+    const names: Record<ProductId, string> = {
+      starter: "NÜGEL Starter Kit",
+      energy: "NÜGEL Konsentrat Minuman Olahraga 200 mL",
+      energy500: "NÜGEL Konsentrat Minuman Olahraga 515 mL",
+      antifog: "NÜGEL Anti-Fog 10 mL",
+      bottle: "NÜGEL Wadah Takar",
+    };
+
+    return names[id];
+  };
+
   const [cart, setCart] =
     useState<Record<ProductId, number>>({ ...emptyCart });
   const [cartLoaded, setCartLoaded] = useState(false);
@@ -272,6 +475,95 @@ export default function Home() {
     }
 
     setCartLoaded(true);
+  }, []);
+
+  useEffect(() => {
+    const savedScroll = sessionStorage.getItem(
+      "nugel-language-scroll"
+    );
+
+    if (!savedScroll) return;
+
+    sessionStorage.removeItem("nugel-language-scroll");
+
+    try {
+      const {
+        sectionId,
+        sectionProgress,
+        pageProgress,
+        productIndex,
+      } = JSON.parse(savedScroll);
+
+      const restorePosition = () => {
+        let targetTop: number | null = null;
+
+        if (sectionId) {
+          const section = document.getElementById(sectionId);
+
+          if (section) {
+            const rect = section.getBoundingClientRect();
+
+            const absoluteSectionTop =
+              window.scrollY + rect.top;
+
+            const viewportAnchor =
+              window.innerHeight * 0.35;
+
+            targetTop =
+              absoluteSectionTop +
+              section.offsetHeight * sectionProgress -
+              viewportAnchor;
+          }
+        }
+
+        // Fallback if we weren't inside one of the named sections.
+        if (targetTop === null) {
+          const maxScroll = Math.max(
+            document.documentElement.scrollHeight -
+              window.innerHeight,
+            1
+          );
+
+          targetTop = maxScroll * pageProgress;
+        }
+
+        window.scrollTo({
+          top: Math.max(0, targetTop),
+          behavior: "auto",
+        });
+
+        // Restore Products carousel too.
+        if (
+          productIndex !== null &&
+          productIndex !== undefined
+        ) {
+          const rail = productRailRef.current;
+
+          if (rail && rail.clientWidth > 0) {
+            rail.scrollTo({
+              left: rail.clientWidth * productIndex,
+              behavior: "auto",
+            });
+          }
+        }
+      };
+
+      // Give the translated page a moment to finish its layout.
+      requestAnimationFrame(() => {
+        requestAnimationFrame(restorePosition);
+      });
+
+      const timeout = window.setTimeout(
+        restorePosition,
+        150
+      );
+
+      return () => window.clearTimeout(timeout);
+    } catch {
+      console.error(
+        "Could not restore language scroll position."
+      );
+    }
   }, []);
 
   useEffect(() => {
@@ -430,13 +722,100 @@ export default function Home() {
     };
   }, []);
 
+  function switchLanguage(targetLanguage: "en" | "id") {
+    // Don't reload if the visitor clicks the language they're already using.
+    if (
+      (targetLanguage === "id" && isIndonesian) ||
+      (targetLanguage === "en" && !isIndonesian)
+    ) {
+      return;
+    }
+
+    const sectionIds = [
+      "home",
+      "starter",
+      "products",
+      "shop",
+      "about",
+      "faq",
+    ];
+
+    // Use a point slightly above the middle of the screen
+    // to determine what the visitor is currently reading.
+    const viewportAnchor = window.innerHeight * 0.35;
+
+    let sectionId: string | null = null;
+    let sectionProgress = 0;
+
+    for (const id of sectionIds) {
+      const section = document.getElementById(id);
+
+      if (!section) continue;
+
+      const rect = section.getBoundingClientRect();
+
+      if (rect.top <= viewportAnchor && rect.bottom > viewportAnchor) {
+        sectionId = id;
+
+        sectionProgress = Math.max(
+          0,
+          Math.min(
+            1,
+            (viewportAnchor - rect.top) / Math.max(rect.height, 1)
+          )
+        );
+
+        break;
+      }
+    }
+
+    // Fallback for areas such as the final CTA/footer.
+    const maxScroll = Math.max(
+      document.documentElement.scrollHeight - window.innerHeight,
+      1
+    );
+
+    const pageProgress = Math.max(
+      0,
+      Math.min(1, window.scrollY / maxScroll)
+    );
+
+    // Remember which product is visible in the desktop carousel.
+    const rail = productRailRef.current;
+
+    const productIndex =
+      sectionId === "products" && rail && rail.clientWidth > 0
+        ? Math.round(rail.scrollLeft / rail.clientWidth)
+        : null;
+
+    sessionStorage.setItem(
+      "nugel-language-scroll",
+      JSON.stringify({
+        sectionId,
+        sectionProgress,
+        pageProgress,
+        productIndex,
+      })
+    );
+
+    const hash =
+      sectionId && sectionId !== "home"
+        ? `#${sectionId}`
+        : "";
+
+    window.location.href = `/${targetLanguage}${hash}`;
+  }
   function addToCart(productId: ProductId) {
     setCart((current) => ({
       ...current,
       [productId]: current[productId] + 1,
     }));
 
-    setCartNotice(`${products[productId].name} added to your cart`);
+    setCartNotice(
+      `${productDisplayName(productId)} ${
+        isIndonesian ? "ditambahkan ke keranjang" : "added to your cart"
+      }`
+    );
 
     if (cartNoticeTimerRef.current !== null) {
       window.clearTimeout(cartNoticeTimerRef.current);
@@ -479,7 +858,7 @@ export default function Home() {
   }, 0);
 
   function formatRupiah(value: number) {
-    return `Rp ${new Intl.NumberFormat("en-US", {
+    return `Rp ${new Intl.NumberFormat(isIndonesian ? "id-ID" : "en-US", {
       maximumFractionDigits: 0,
     }).format(value)}`;
   }
@@ -701,12 +1080,13 @@ export default function Home() {
         const quantity = cart[id];
         const subtotal = products[id].price * quantity;
 
-        return `${quantity}x ${products[id].name} - ${formatRupiah(
+        return `${quantity}x ${productDisplayName(id)} - ${formatRupiah(
           subtotal
         )}`;
       });
 
-    const message = `Halo NÜGEL! 👋
+    const message = isIndonesian
+      ? `Halo NÜGEL! 👋
 
 Saya ingin melakukan pemesanan:
 
@@ -719,7 +1099,21 @@ Alamat:
 Kota/Kabupaten:
 Kode Pos:
 
-Terima kasih!`;
+Terima kasih!`
+      : `Hello NÜGEL! 👋
+
+I would like to place an order:
+
+${orderLines.join("\n")}
+
+Total: ${formatRupiah(cartTotal)}
+
+Name:
+Address:
+City/Regency:
+Postal Code:
+
+Thank you!`;
 
     window.open(
       `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
@@ -728,6 +1122,205 @@ Terima kasih!`;
       "_blank"
     );
   }
+
+
+  const faqItems = isIndonesian
+    ? [
+      [
+        "Apa isi Starter Kit?",
+        `NÜGEL Starter Kit berisi:
+• 200 mL Konsentrat Minuman Olahraga
+• Wadah Takar NÜGEL
+• 10 mL NÜGEL Anti-Fog
+
+Jika dibeli terpisah, total harga ketiga produk adalah ${formatRupiah(STARTER_REGULAR_PRICE)}. Harga Starter Kit adalah ${formatRupiah(products.starter.price)}, jadi Anda hemat ${formatRupiah(STARTER_SAVINGS)}.`,
+      ],
+      [
+        "Apakah produknya bisa dibeli satuan?",
+        `Ya. Konsentrat Minuman Olahraga, Wadah Takar, dan Anti-Fog semuanya dapat dibeli secara terpisah. Jika Anda menginginkan ketiganya, Starter Kit menghemat ${formatRupiah(STARTER_SAVINGS)} dibandingkan membeli satuan.`,
+      ],
+      [
+        "NÜGEL Konsentrat Minuman Olahraga tersedia dalam ukuran apa saja?",
+        `NÜGEL Konsentrat Minuman Olahraga tersedia dalam botol 200 mL (7 sajian) dan 515 mL (18 sajian).
+
+- 200 mL menghasilkan 7 × 400 mL* = total 2,8 L minuman olahraga.
+
+- 515 mL menghasilkan 18 × 400 mL* = total 7,2 L minuman olahraga.
+
+*Cara membuat 400 mL: Campurkan satu sajian (28,5 mL konsentrat) dengan sekitar 375 mL air.`,
+      ],
+      [
+        "Berapa lama konsentrat larut dalam air?",
+        "Konsentrat larut seketika hanya dengan 2–3 kali kocokan atau adukan — tanpa gumpalan dan tanpa menunggu, berbeda dengan bubuk.",
+      ],
+      [
+        "Apakah Minuman Olahraga NÜGEL yang sudah disiapkan bersifat isotonik?",
+        `Ya. NÜGEL diformulasikan agar berada dalam rentang isotonik ketika disiapkan sesuai petunjuk (28,5 mL konsentrat + 375 mL air ≈ 400 mL).
+
+Bagaimana kami memperkirakannya:
+
+Suatu minuman disebut hipotonik, isotonik, atau hipertonik terutama berdasarkan osmolalitasnya. Minuman olahraga isotonik umumnya digambarkan memiliki osmolalitas sekitar 270–330 mOsm/kg, mendekati konsentrasi cairan tubuh.
+
+Per sekitar 400 mL minuman yang sudah disiapkan:
+
+1. Karbohidrat:
+27 g gula ≈ 197,2 mOsm/kg
+
+2. Elektrolit:
+
+Natrium 190 mg ≈ 20,6 mOsm/kg
+Kalium 190 mg ≈ 12,1 mOsm/kg
+Klorida 310 mg ≈ 21,8 mOsm/kg
+Mineral lain (Mg, Ca, P) ≈ 5,0 mOsm/kg
+Total Elektrolit ≈ 59,6 mOsm/kg
+
+3. Serat + Protein:
+≈ 2,0 mOsm/kg
+
+4. Asam organik dari nira kelapa, air jeruk nipis, dan asam tambahan:
+≈ 21,2 mOsm/kg
+
+Perkiraan total:
+
+197,2 + 59,6 + 2,0 + 21,2 ≈ 280 mOsm/kg
+
+Perkiraan berbasis formulasi ini menempatkan minuman NÜGEL yang sudah disiapkan dalam rentang isotonik yang umum digunakan, yaitu sekitar 270–330 mOsm/kg. Osmolalitas sebenarnya dapat bervariasi dan dapat dikonfirmasi melalui pengukuran laboratorium.
+
+Gula dalam nira kelapa terutama berupa sukrosa, yang setelah dikonsumsi dipecah menjadi glukosa dan fruktosa dengan rasio sekitar 1:1. Keduanya kemudian diserap melalui jalur transportasi usus yang berbeda — terutama SGLT1 untuk glukosa dan GLUT5 untuk fruktosa. Prinsip karbohidrat ganda ini banyak digunakan dalam formulasi nutrisi olahraga daya tahan profesional.`,
+      ],
+      [
+        "Apakah NÜGEL halal?",
+        "Ya. NÜGEL Konsentrat Minuman Olahraga berlabel Halal Indonesia.",
+      ],
+      [
+        "Apakah NÜGEL Konsentrat Minuman Olahraga cocok untuk anak-anak?",
+        "NÜGEL dapat digunakan oleh atlet muda berusia sekitar 9–18 tahun selama aktivitas olahraga yang berkepanjangan atau berat. Untuk aktivitas harian normal dan sesi yang lebih singkat, air tetap sebaiknya menjadi minuman utama, dan atlet yang lebih muda sebaiknya menggunakan minuman olahraga sesuai kebutuhan masing-masing serta dengan pengawasan orang tua.",
+      ],
+      [
+        "Apakah NÜGEL Konsentrat Minuman Olahraga mengandung kafein dan aman dari sisi doping?",
+        "NÜGEL tidak mengandung kafein atau stimulan tambahan dan tidak secara sengaja mengandung zat yang dilarang oleh WADA (World Anti-Doping Agency). Seperti produk nutrisi olahraga lainnya, atlet kompetitif tetap sebaiknya memeriksa persyaratan anti-doping terbaru sebelum digunakan.",
+      ],
+      [
+        "Apakah NÜGEL Anti-Fog boleh digunakan pada kacamata renang baru?",
+        `Kacamata renang baru biasanya sudah memiliki lapisan anti-fog dari pabrik di bagian dalam lensa. Jika lapisan asli ini masih bekerja dengan baik, biasanya NÜGEL belum perlu langsung digunakan. Sebaiknya biarkan lapisan pabrik tetap utuh dan hindari menggosok bagian dalam lensa tanpa perlu.
+
+Seiring waktu, lapisan anti-fog asli dapat perlahan kehilangan efektivitasnya. Tergantung merek, jenis lensa, dan frekuensi penggunaan, hal ini dapat terjadi setelah beberapa minggu atau bulan. Anda mungkin mulai melihat kacamata lebih cepat berembun, atau sebagian lensa tetap jernih sementara bagian lain mulai berkabut.
+
+Saat lapisan asli sudah jelas menurun efektivitasnya, periksa terlebih dahulu petunjuk perawatan dari produsen kacamata renang. Jika pembersihan bagian dalam lensa diperbolehkan, cuci perlahan menggunakan air hangat bersih dan sedikit deterjen lembut, lalu bilas hingga bersih. Hindari pembersih abrasif, pasta gigi, pelarut kuat, atau menggosok terlalu keras karena dapat merusak lensa.
+
+Setelah bagian dalam lensa bersih dan cukup merata, NÜGEL Anti-Fog dapat digunakan sebagai perawatan anti-fog selanjutnya.`,
+      ],
+      [
+        "Bagaimana cara memesan?",
+        "Produk NÜGEL saat ini dapat dipesan melalui website kami atau langsung melalui WhatsApp.",
+      ],
+      [
+        "Bagaimana ongkos kirim dihitung?",
+        "Biaya pengiriman dihitung berdasarkan lokasi tujuan, berat paket, dan layanan pengiriman yang dipilih. Ongkos kirim yang berlaku akan dikonfirmasi melalui WhatsApp dan dicantumkan dalam invoice.",
+      ],
+      [
+        "Bagaimana cara pembayarannya?",
+        "Pembayaran dapat dilakukan melalui QRIS atau transfer bank ke BNI, BCA, atau BRI, berdasarkan jumlah total yang tercantum pada invoice.",
+      ],
+    ]
+    : [
+              [
+                "What is in the Starter Kit?",
+                `The NÜGEL Starter Kit includes:
+• 200 mL Sports Drink Concentrate
+• NÜGEL Measuring Container
+• 10 mL NÜGEL Anti-Fog
+
+Bought separately, the three products total ${formatRupiah(STARTER_REGULAR_PRICE)}. The Starter Kit is ${formatRupiah(products.starter.price)}, so you save ${formatRupiah(STARTER_SAVINGS)}.`,
+              ],
+              [
+                "Can I buy the products separately?",
+                `Yes. The Sports Drink Concentrate, Measuring Container, and Anti-Fog can all be purchased separately. If you want all three, the Starter Kit saves you ${formatRupiah(STARTER_SAVINGS)} compared with buying them individually.`,
+              ],
+              [
+                "What sizes does NÜGEL Sports Drink Concentrate come in?",
+                `NÜGEL Sports Drink Concentrate comes in 200 mL (7 servings) and 515 mL (18 servings) bottles.
+
+- 200 mL makes 7 × 400 mL* = 2.8 L total sports drink.
+
+- 515 mL makes 18 × 400 mL* = 7.2 L total sports drink.
+
+*How to make 400 mL: Mix one serving (28.5 mL concentrate) with about 375 mL water.`,
+              ],
+              [
+                "How long does it take to dissolve the concentrate in water?",
+                "It dissolves instantly with 2-3 shakes or stirs — no clumps, no waiting, unlike powder.",
+              ],
+              [
+                "Is the prepared NÜGEL Sports Drink isotonic?",
+                `Yes. NÜGEL is formulated to fall within the isotonic range when prepared as directed (28.5 mL concentrate + 375 mL water ≈ 400 mL).
+
+How we estimated it:
+
+A drink is hypotonic, isotonic or hypertonic depending largely on its osmolality. Isotonic sports drinks are commonly described as having an osmolality of approximately 270–330 mOsm/kg, close to the concentration of body fluids.
+
+Per approximately 400 mL prepared drink:
+
+1. Carbohydrates:
+27 g sugar ≈ 197.2 mOsm/kg
+
+2. Electrolytes:
+
+Sodium 190 mg ≈ 20.6 mOsm/kg
+Potassium 190 mg ≈ 12.1 mOsm/kg
+Chloride 310 mg ≈ 21.8 mOsm/kg
+Other minerals (Mg, Ca, P) ≈ 5.0 mOsm/kg
+Total Electrolytes ≈ 59.6 mOsm/kg
+
+3. Fiber + Protein:
+≈ 2.0 mOsm/kg
+
+4. Organic acids from coconut palm sap, lime juice and added acids:
+≈ 21.2 mOsm/kg
+
+Estimated total:
+
+197.2 + 59.6 + 2.0 + 21.2 ≈ 280 mOsm/kg
+
+This formulation-based estimate places the prepared NÜGEL drink within the commonly used isotonic range of approximately 270–330 mOsm/kg. Actual osmolality may vary and can be confirmed by laboratory measurement.
+
+The sugar in coconut palm sap is mainly sucrose, which is broken down after consumption into glucose and fructose in approximately a 1:1 ratio. These are then absorbed through different intestinal transport pathways—primarily SGLT1 for glucose and GLUT5 for fructose. This dual-carbohydrate principle is widely used in pro endurance sports nutrition formulations.`,
+              ],
+              [
+                "Is NÜGEL halal?",
+                "Yes. NÜGEL Sports Drink Concentrate is labeled Halal Indonesia.",
+              ],
+              [
+                "Is NÜGEL Sports Drink Concentrate suitable for kids?",
+                "NÜGEL can be used by young athletes aged approximately 9–18 years during prolonged or demanding sports activities. For normal daily activity and shorter sessions, water should remain the primary drink, and younger athletes should use sports drinks according to their individual needs and with parental supervision.",
+              ],
+              [
+                "Does NÜGEL Sports Drink Concentrate contain caffeine, and is it doping-safe?",
+                "NÜGEL contains no caffeine or added stimulants and does not intentionally contain substances prohibited by WADA (World Anti-Doping Agency). As with any sports nutrition product, competitive athletes should always check current anti-doping requirements before use.",
+              ],
+              [
+                "Can I apply NÜGEL Anti-Fog Drops on new goggles?",
+                `New swimming goggles usually already have a factory-applied anti-fog coating on the inside of the lenses. If this original coating is still working well, there is normally no need to apply NÜGEL immediately. It is better to leave the factory coating intact and avoid unnecessary rubbing of the inner lens.
+
+Over time, the original anti-fog layer may gradually lose its effectiveness. Depending on the brand, lens type and frequency of use, this may happen after several weeks or months. You may notice that the goggles begin to fog more quickly, or that some parts of the lens remain clear while other areas become foggy.
+
+When the original coating has clearly deteriorated, first check the goggle manufacturer's care instructions. If cleaning of the inner lens is permitted, gently wash the lens with clean lukewarm water and a small amount of mild detergent, then rinse thoroughly. Avoid abrasive cleaners, toothpaste, strong solvents or aggressive rubbing, as these may damage the lens.
+
+Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can be applied as the ongoing anti-fog treatment.`,
+              ],
+              [
+                "How do I order?",
+                "NÜGEL products can currently be ordered through our website or directly via WhatsApp.",
+              ],
+              [
+                "How is shipping calculated?",
+                "Shipping costs are calculated based on your delivery location, package weight, and selected shipping service. The applicable shipping cost will be confirmed via WhatsApp and included in the invoice.",
+              ],
+              [
+                "How is payment made?",
+                "Payment can be made via QRIS or bank transfer to BNI, BCA, or BRI, based on the total amount stated in the invoice.",
+              ],
+            ];
 
   return (
     <main className="relative isolate min-h-screen overflow-hidden bg-[#02131f] text-white">
@@ -774,10 +1367,10 @@ Terima kasih!`;
 
         <nav className="hidden items-center gap-6 text-sm font-semibold md:flex">
           {[
-            ["#starter", "Starter Kit"],
-            ["#products", "Products"],
-            ["#shop", "Shop"],
-            ["#about", "About"],
+            ["#starter", t("Starter Kit", "Paket Pemula")],
+            ["#products", t("Products", "Produk")],
+            ["#shop", t("Shop", "Belanja")],
+            ["#about", t("About", "Tentang")],
             ["#faq", "FAQ"],
           ].map(([href, label]) => (
             <a
@@ -798,7 +1391,7 @@ Terima kasih!`;
           <button
             type="button"
             onClick={() => setMobileMenuOpen((open) => !open)}
-            aria-label={mobileMenuOpen ? "Close navigation" : "Open navigation"}
+            aria-label={mobileMenuOpen ? t("Close navigation", "Tutup navigasi") : t("Open navigation", "Buka navigasi")}
             aria-expanded={mobileMenuOpen}
             className="flex h-10 w-10 items-center justify-center text-white/90 transition hover:text-[#9DFF00] md:hidden"
           >
@@ -821,7 +1414,7 @@ Terima kasih!`;
           <button
             type="button"
             onClick={() => setSearchOpen(true)}
-            aria-label="Search NÜGEL"
+            aria-label={t("Search NÜGEL", "Cari di NÜGEL")}
             className="flex h-10 w-10 items-center justify-center text-white/90 transition hover:scale-110 hover:text-[#9DFF00]"
           >
             <svg
@@ -839,7 +1432,7 @@ Terima kasih!`;
 
           <button
             onClick={() => setCartOpen(true)}
-            aria-label={`Open cart with ${cartCount} item${cartCount === 1 ? "" : "s"}`}
+            aria-label={t(`Open cart with ${cartCount} item${cartCount === 1 ? "" : "s"}`, `Buka keranjang dengan ${cartCount} item`)}
             className="relative flex h-10 w-10 items-center justify-center text-white/95 transition hover:scale-110 hover:text-[#9DFF00]"
           >
             <svg
@@ -865,17 +1458,46 @@ Terima kasih!`;
               </span>
             )}
           </button>
+          <div className="flex items-center rounded-full border border-white/15 bg-white/[0.06] p-1 text-[10px] font-black backdrop-blur-md sm:text-xs">
+            <button
+              type="button"
+              onClick={() => switchLanguage("en")}
+              aria-label="View website in English"
+              aria-pressed={!isIndonesian}
+              className={`rounded-full px-2 py-1.5 transition sm:px-2.5 ${
+                !isIndonesian
+                  ? "bg-[#9DFF00] text-black"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              EN
+            </button>
+
+            <button
+              type="button"
+              onClick={() => switchLanguage("id")}
+              aria-label="Lihat website dalam Bahasa Indonesia"
+              aria-pressed={isIndonesian}
+              className={`rounded-full px-2 py-1.5 transition sm:px-2.5 ${
+                isIndonesian
+                  ? "bg-[#9DFF00] text-black"
+                  : "text-white/60 hover:text-white"
+              }`}
+            >
+              ID
+            </button>
+          </div>
         </div>
       </header>
 
       {mobileMenuOpen && (
         <div className="fixed inset-x-3 top-[72px] z-[80] overflow-hidden rounded-[1.5rem] border border-white/15 bg-[#031522]/95 p-2 shadow-2xl backdrop-blur-2xl md:hidden">
           {[
-            ["#home", "Home"],
-            ["#starter", "Starter Kit"],
-            ["#products", "Products"],
-            ["#shop", "Shop"],
-            ["#about", "About"],
+            ["#home", t("Home", "Beranda")],
+            ["#starter", t("Starter Kit", "Paket Pemula")],
+            ["#products", t("Products", "Produk")],
+            ["#shop", t("Shop", "Belanja")],
+            ["#about", t("About", "Tentang")],
             ["#faq", "FAQ"],
           ].map(([href, label]) => (
             <a
@@ -898,7 +1520,7 @@ Terima kasih!`;
         <div className="fixed inset-0 z-[90]">
           <button
             type="button"
-            aria-label="Close search"
+            aria-label={t("Close search", "Tutup pencarian")}
             onClick={() => setSearchOpen(false)}
             className="absolute inset-0 bg-black/55 backdrop-blur-sm"
           />
@@ -921,14 +1543,14 @@ Terima kasih!`;
                 autoFocus
                 value={searchQuery}
                 onChange={(event) => setSearchQuery(event.target.value)}
-                placeholder="Search NÜGEL, nutrition, anti-fog..."
+                placeholder={t("Search NÜGEL, nutrition, anti-fog...", "Cari NÜGEL, nutrisi, anti-fog...")}
                 className="min-w-0 flex-1 bg-transparent py-2 text-base text-white outline-none placeholder:text-white/35"
               />
 
               <button
                 type="button"
                 onClick={() => setSearchOpen(false)}
-                aria-label="Close search"
+                aria-label={t("Close search", "Tutup pencarian")}
                 className="flex h-9 w-9 items-center justify-center text-2xl text-white/60 transition hover:text-white"
               >
                 ×
@@ -963,7 +1585,7 @@ Terima kasih!`;
                 ))
               ) : (
                 <div className="px-4 py-10 text-center text-white/50">
-                  No matching result yet.
+                  {t("No matching result yet.", "Belum ada hasil yang cocok.")}
                 </div>
               )}
             </div>
@@ -982,7 +1604,7 @@ Terima kasih!`;
             ✓
           </span>
           <div className="min-w-0">
-            <p className="text-sm font-bold">Added to cart</p>
+            <p className="text-sm font-bold">{t("Added to cart", "Ditambahkan ke keranjang")}</p>
             <p className="truncate text-xs text-white/60">{cartNotice}</p>
           </div>
           <button
@@ -993,7 +1615,7 @@ Terima kasih!`;
             }}
             className="ml-2 shrink-0 text-xs font-bold text-[#9DFF00] transition hover:text-white"
           >
-            View cart
+            {t("View cart", "Lihat keranjang")}
           </button>
         </div>
       )}
@@ -1014,23 +1636,25 @@ Terima kasih!`;
             <div className="mx-auto grid w-full max-w-7xl items-center gap-7 sm:gap-9 lg:-translate-y-3 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
               <div className="max-w-2xl">
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.38em] text-[#9DFF00]">
-                  Made for swimmers
+                  {t("Made for swimmers", "Dibuat untuk perenang")}
                 </p>
 
                 <h1 className="text-[2.7rem] font-black leading-[0.93] tracking-[-0.045em] sm:text-5xl md:text-6xl lg:text-[5.5rem] lg:leading-[0.9] xl:text-[6rem]">
-                  <span className="block">Stay fueled,</span>
-
-                  <span className="mt-4 block">
-                    hydrated &
+                  <span className="block">
+                    {t("Stay fueled,", "Tetap bertenaga,")}
                   </span>
 
                   <span className="mt-4 block">
-                    clear.
+                    {t("hydrated &", "terhidrasi &")}
+                  </span>
+
+                  <span className="mt-4 block">
+                    {t("clear.", "jernih.")}
                   </span>
                 </h1>
 
                 <p className="mt-5 max-w-xl text-base font-medium leading-7 text-white/95 drop-shadow-[0_2px_12px_rgba(0,0,0,0.28)] md:text-lg">
-                  Keep your stamina up and your swim focused. NÜGEL essentials designed for every swim session.
+                  {t("Keep your stamina up and your swim focused. NÜGEL essentials designed for every swim session.", "Jaga stamina dan tetap fokus saat berenang. Produk esensial NÜGEL dirancang untuk setiap sesi renang.")}
                 </p>
 
                 <div className="mt-7 flex flex-col gap-3 md:flex-row md:flex-wrap md:gap-4">
@@ -1042,7 +1666,7 @@ Terima kasih!`;
                     }}
                     className="w-full cursor-pointer rounded-full bg-[#9DFF00] px-6 py-3.5 text-center font-bold text-black transition duration-300 hover:scale-[1.03] hover:bg-[#B7FF4A] md:w-auto"
                   >
-                    Start with the essentials
+                    {t("Start with the essentials", "Mulai dengan yang esensial")}
                   </a>
 
                   <a
@@ -1053,7 +1677,7 @@ Terima kasih!`;
                     }}
                     className="w-full cursor-pointer rounded-full border border-white/60 bg-[#031827]/55 px-6 py-3.5 text-center font-bold text-white shadow-[0_10px_30px_rgba(0,0,0,0.16)] backdrop-blur-md transition duration-300 hover:scale-[1.03] hover:border-[#9DFF00]/70 hover:bg-[#08283a]/80 md:w-auto"
                   >
-                    Shop all
+                    {t("Shop all", "Belanja semua")}
                   </a>
                 </div>
 
@@ -1061,10 +1685,13 @@ Terima kasih!`;
                   <div className="pointer-events-none absolute bottom-[6%] left-1/2 h-10 w-[78%] -translate-x-1/2 rounded-full bg-black/25 blur-xl" />
                   <Image
                     src="/images/nugel-home-products.png"
-                    alt="NÜGEL Starter Kit with Sports Drink Concentrate, Measuring Container and Anti-Fog Drops"
+                    alt={t(
+                      "NÜGEL Starter Kit with Sports Drink Concentrate, Measuring Container and Anti-Fog Drops",
+                      "NÜGEL Starter Kit dengan Konsentrat Minuman Olahraga, Wadah Takar, dan Anti-Fog"
+                    )}
                     width={952}
                     height={1310}
-                    priority
+                    loading="eager"
                     className="relative z-10 h-auto w-[235px] max-w-full object-contain drop-shadow-[0_24px_36px_rgba(0,0,0,0.28)] sm:w-[270px]"
                   />
                 </div>
@@ -1084,8 +1711,8 @@ Terima kasih!`;
                         "0 0 6px rgba(255,255,255,1), 0 0 14px rgba(255,255,255,1), 0 0 28px rgba(255,255,255,0.95), 0 0 42px rgba(255,255,255,0.8), 0 0 60px rgba(255,255,255,0.55)",
                     }}
                   >
-                    <span className="block">Featured</span>
-                    <span className="block">Starter Kit</span>
+                    <span className="block">{t("Featured", "Unggulan")}</span>
+                    <span className="block">{t("Starter Kit", "Starter Kit")}</span>
                   </p>
                 </div>
 
@@ -1100,30 +1727,30 @@ Terima kasih!`;
 
                   <Image
                     src="/images/nugel-home-products.png"
-                    alt="NÜGEL Starter Kit with Energy, Mixing Cup and Anti-Fog Drops"
+                    alt={t("NÜGEL Starter Kit with Energy, Mixing Cup and Anti-Fog Drops", "NÜGEL Starter Kit dengan Konsentrat Minuman Olahraga, Wadah Takar, dan Anti-Fog")}
                     width={952}
                     height={1310}
+                    loading="eager"
                     className="hero-composite-image relative z-10 h-auto w-[465px] max-w-full translate-y-4 object-contain drop-shadow-[0_34px_54px_rgba(0,0,0,0.28)] xl:w-[510px]"
-                    priority
                   />
 
                   <div className="pointer-events-none absolute inset-0 z-30">
                     <div
                       tabIndex={0}
                       className="hero-product-hotspot hero-product-hotspot-energy pointer-events-auto"
-                      aria-label="NÜGEL Sports Drink Concentrate"
+                      aria-label={t("NÜGEL Sports Drink Concentrate", "NÜGEL Konsentrat Minuman Olahraga")}
                     >
-                      <span className="hero-product-tooltip">Sports Drink Concentrate</span>
+                      <span className="hero-product-tooltip">{t("Sports Drink Concentrate", "Konsentrat Minuman Olahraga")}</span>
                     </div>
                     <div
                       tabIndex={0}
                       className="hero-product-hotspot hero-product-hotspot-container pointer-events-auto"
-                      aria-label="NÜGEL Measuring Container"
+                      aria-label={t("NÜGEL Measuring Container", "NÜGEL Wadah Takar")}
                     >
                       <span className="hero-product-tooltip">
-                        Measuring
+                        {t("Measuring", "Wadah")}
                         <br />
-                        Container
+                        {t("Container", "Takar")}
                       </span>
                     </div>
                     <div
@@ -1156,17 +1783,17 @@ Terima kasih!`;
               className="nugel-reveal rounded-[1.75rem] border border-white/18 bg-[#021522]/72 p-5 shadow-[0_18px_55px_rgba(0,0,0,0.24)] backdrop-blur-xl md:p-6"
             >
               <p className="text-xs font-black uppercase tracking-[0.35em] text-[#B7FF4A] drop-shadow-[0_1px_8px_rgba(157,255,0,0.18)]">
-                Don&apos;t know where to start?
+                {t("Don\'t know where to start?", "Bingung mulai dari mana?")}
               </p>
 
               <h2 className="mt-3 max-w-xl text-3xl font-black tracking-tight md:text-4xl">
-                Start with
+                {t("Start with", "Mulai dengan")}
                 <br />
-                the essentials.
+                {t("the essentials.", "yang esensial.")}
               </h2>
 
               <p className="mt-4 max-w-lg text-sm leading-6 text-white/90 md:text-base">
-                The NÜGEL Starter Kit brings together the essentials you need for a fueled, hydrated and focused swim.
+                {t("The NÜGEL Starter Kit brings together the essentials you need for a fueled, hydrated and focused swim.", "NÜGEL Starter Kit menyatukan perlengkapan esensial yang Anda butuhkan agar tetap bertenaga, terhidrasi, dan fokus saat berenang.")}
               </p>
 
               <div className="mt-5 rounded-2xl border border-[#9DFF00]/20 bg-[#9DFF00]/[0.06] p-4">
@@ -1177,7 +1804,7 @@ Terima kasih!`;
                 </div>
 
                 <p className="mt-2 text-sm leading-6 text-white/70">
-                  200 mL Sports Drink Concentrate + Measuring Container + 10 mL Anti-Fog
+                  {t("200 mL Sports Drink Concentrate + Measuring Container + 10 mL Anti-Fog", "200 mL Konsentrat Minuman Olahraga + Wadah Takar + 10 mL Anti-Fog")}
                 </p>
 
                 <div className="mt-3 flex flex-wrap items-end gap-x-3 gap-y-2">
@@ -1188,31 +1815,31 @@ Terima kasih!`;
                     {formatRupiah(products.starter.price)}
                   </span>
                   <span className="pb-0.5 text-xs font-black uppercase tracking-[0.12em] text-[#C7FF72]">
-                    Save {formatRupiah(STARTER_SAVINGS)}
+                    {t("Save", "Hemat")} {formatRupiah(STARTER_SAVINGS)}
                   </span>
                 </div>
               </div>
 
               <div className="mt-5 border-t border-white/12 pt-4">
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/75">
-                  What&apos;s included in the kit?
+                  {t("What\'s included in the kit?", "Apa saja isi paketnya?")}
                 </p>
 
                 <div className="mt-3 divide-y divide-white/10">
                   {[
                     {
-                      name: "Sports Drink Concentrate",
-                      detail: "Maintain your energy and hydration levels",
+                      name: t("Sports Drink Concentrate", "Konsentrat Minuman Olahraga"),
+                      detail: t("Maintain your energy and hydration levels", "Jaga tingkat energi dan hidrasi Anda"),
                       productIndex: 0,
                     },
                     {
-                      name: "Anti-Fog Drops",
-                      detail: "Keep your goggles clear and fog-free",
+                      name: t("Anti-Fog Drops", "Tetes Anti-Fog"),
+                      detail: t("Keep your goggles clear and fog-free", "Jaga kacamata renang tetap jernih dan bebas embun"),
                       productIndex: 1,
                     },
                     {
-                      name: "Measuring Container ",
-                      detail: "Reusable container for your swim routine",
+                      name: t("Measuring Container", "Wadah Takar"),
+                      detail: t("Reusable container for your swim routine", "Wadah pakai ulang untuk rutinitas berenang Anda"),
                       productIndex: 2,
                     },
                   ].map((item) => (
@@ -1255,7 +1882,7 @@ Terima kasih!`;
                   onClick={() => addToCart("starter")}
                   className="w-full rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[#031522] transition duration-300 hover:scale-[1.03] sm:w-auto"
                 >
-                  Get the Starter Kit · {formatRupiah(products.starter.price)}
+                  {t("Get the Starter Kit", "Dapatkan Starter Kit")} · {formatRupiah(products.starter.price)}
                 </button>
 
                 <div className="mt-6 flex justify-end border-t border-white/12 pb-2 pt-5">
@@ -1268,7 +1895,7 @@ Terima kasih!`;
                     }}
                     className="text-sm font-bold text-[#9DFF00] transition-colors hover:text-white"
                   >
-                    Want to buy separately?
+                    {t("Want to buy separately?", "Ingin membeli satuan?")}
                   </a>
                 </div>
               </div>
@@ -1288,7 +1915,7 @@ Terima kasih!`;
                       <div style={{ transform: "rotate(-5deg)" }}>
                         <Image
                           src="/images/nugel-energy-200.png"
-                          alt="NÜGEL Sports Drink Concentrate 200 ml"
+                          alt={t("NÜGEL Sports Drink Concentrate 200 mL", "NÜGEL Konsentrat Minuman Olahraga 200 mL")}
                           width={1122}
                           height={1402}
                           className="h-[315px] w-auto object-contain drop-shadow-[0_35px_45px_rgba(0,0,0,0.38)] sm:h-[420px] md:h-[470px] lg:h-[495px] xl:h-[535px]"
@@ -1307,7 +1934,7 @@ Terima kasih!`;
                       <div style={{ transform: "rotate(0deg)" }}>
                         <Image
                           src="/images/nugel-mixing-cup.png"
-                          alt="NÜGEL mixing cup"
+                          alt={t("NÜGEL measuring container", "NÜGEL Wadah Takar")}
                           width={1225}
                           height={1284}
                           className="h-[160px] w-auto object-contain drop-shadow-[0_32px_42px_rgba(0,0,0,0.34)] sm:h-[205px] md:h-[235px] lg:h-[258px] xl:h-[280px]"
@@ -1325,7 +1952,7 @@ Terima kasih!`;
                       <div style={{ transform: "rotate(8deg)" }}>
                         <Image
                           src="/images/nugel-antifog.png"
-                          alt="NÜGEL Anti-Fog Drops 10 ml"
+                          alt={t("NÜGEL Anti-Fog Drops 10 mL", "NÜGEL Anti-Fog 10 mL")}
                           width={620}
                           height={1000}
                           className="h-[128px] w-auto object-contain drop-shadow-[0_28px_38px_rgba(0,0,0,0.42)] sm:h-[165px] md:h-[190px] lg:h-[202px] xl:h-[220px]"
@@ -1352,10 +1979,10 @@ Terima kasih!`;
             <div data-reveal className="nugel-reveal text-center">
               <div className="mx-auto inline-block rounded-2xl bg-[#021522]/16 px-5 py-3 backdrop-blur-sm">
                 <p className="text-[10px] font-bold uppercase tracking-[0.35em] text-[#9DFF00]">
-                  Products
+                  {t("Products", "Produk")}
                 </p>
                 <h2 className="mt-1 text-2xl font-black drop-shadow-lg md:text-3xl">
-                  Get to know each NÜGEL essential.
+                  {t("Get to know each NÜGEL essential.", "Kenali setiap produk esensial NÜGEL.")}
                 </h2>
               </div>
             </div>
@@ -1365,7 +1992,7 @@ Terima kasih!`;
         <div className="relative mt-3">
           <button
             type="button"
-            aria-label="Previous product"
+            aria-label={t("Previous product", "Produk sebelumnya")}
             onClick={() => scrollRailLoop(productRailRef, -1, 3)}
             className="absolute left-2 top-[22rem] z-30 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-[#02131f]/58 text-white shadow-lg backdrop-blur-md transition hover:scale-105 hover:border-[#9DFF00] hover:text-[#9DFF00] md:left-6 md:top-1/2 md:grid md:h-9 md:w-9"
           >
@@ -1376,7 +2003,7 @@ Terima kasih!`;
 
           <button
             type="button"
-            aria-label="Next product"
+            aria-label={t("Next product", "Produk berikutnya")}
             onClick={() => scrollRailLoop(productRailRef, 1, 3)}
             className="absolute right-2 top-[22rem] z-30 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-[#02131f]/58 text-white shadow-lg backdrop-blur-md transition hover:scale-105 hover:border-[#9DFF00] hover:text-[#9DFF00] md:right-6 md:top-1/2 md:grid md:h-9 md:w-9"
           >
@@ -1399,7 +2026,7 @@ Terima kasih!`;
                         ? "/images/nugel-energy-200.png"
                         : "/images/nugel-energy-515.png"
                     }
-                    alt={`NÜGEL Sports Drink Concentrate ${spotlightSize} mL`}
+                    alt={t(`NÜGEL Sports Drink Concentrate ${spotlightSize} mL`, `NÜGEL Konsentrat Minuman Olahraga ${spotlightSize} mL`)}
                     width={1122}
                     height={1402}
                     className={`w-auto object-contain drop-shadow-[0_30px_44px_rgba(0,0,0,0.36)] transition-all duration-300 ${
@@ -1411,7 +2038,7 @@ Terima kasih!`;
 
                   <div
                     className="mt-3 inline-flex items-center rounded-full border border-white/20 bg-[#031827]/72 p-1 shadow-[0_8px_24px_rgba(0,0,0,0.18)] backdrop-blur-md"
-                    aria-label="Select product size to preview"
+                    aria-label={t("Select product size to preview", "Pilih ukuran produk untuk dilihat")}
                   >
                     {[200, 515].map((size) => (
                       <button
@@ -1431,35 +2058,44 @@ Terima kasih!`;
                   </div>
 
                   <p className="mt-3 max-w-[360px] text-center text-xs leading-5 text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.72)] sm:text-[13px]">
-                    <span className="font-bold">Product shown for illustration.</span> Actual {spotlightSize} mL bottle dimensions: {spotlightSize === 200
-                      ? "height 18.9 cm; diameter 4.2 cm; total weight 295 g."
-                      : "height 17.9 cm; diameter 6.5 cm; total weight 735 g."}
+                    <span className="font-bold">{t("Product shown for illustration.", "Gambar produk hanya untuk ilustrasi.")}</span> {t("Actual", "Dimensi botol")} {spotlightSize} mL {t("bottle dimensions:", "sebenarnya:")} {spotlightSize === 200
+                      ? t("height 18.9 cm; diameter 4.2 cm; total weight 295 g.", "tinggi 18,9 cm; diameter 4,2 cm; berat total 295 g.")
+                      : t("height 17.9 cm; diameter 6.5 cm; total weight 735 g.", "tinggi 17,9 cm; diameter 6,5 cm; berat total 735 g.")}
                   </p>
                 </div>
 
                 <div className="rounded-[2rem] border border-white/14 bg-[#031827]/96 p-5 shadow-[0_22px_65px_rgba(0,0,0,0.28)] md:p-6 xl:p-7">
                   <p className="text-xs font-black uppercase tracking-[0.34em] text-[#B7FF4A]">
-                    NÜGEL Sports Drink Concentrate
+                    {t("NÜGEL Sports Drink Concentrate", "NÜGEL Konsentrat Minuman Olahraga")}
                   </p>
 
                   <h3 className="mt-3 text-3xl font-black leading-[1.03] tracking-[-0.035em] md:text-[2.35rem]">
-                    Quality Ingredients and Real Nutrition; More Than Just Sugar & Water.
+                    {t("Quality Ingredients and Real Nutrition; More Than Just Sugar & Water.", "Bahan Berkualitas dan Nutrisi Nyata; Lebih dari Sekadar Gula & Air.")}
                   </h3>
 
                   <div className="mt-4 max-w-5xl space-y-3 text-sm leading-7 text-white/88 md:text-base">
                     <p>
-                      NÜGEL sports drink concentrate is made with 95% coconut palm sap concentrate, sea salt and lime juice. Coconut palm sap is
-                      also known in
-                      Indonesia as <span className="italic">nira kelapa</span>. Coconut sap is
-                      a naturally sweet liquid collected from coconut palm blossoms. It gives
-                      NÜGEL sports drink concentrate its natural sugars, minerals and other nutrients.
+                      {isIndonesian ? (
+                        <>
+                          NÜGEL Konsentrat Minuman Olahraga dibuat dengan 95% konsentrat nira kelapa, garam laut, dan air jeruk nipis. Nira kelapa adalah
+                          cairan manis alami yang dikumpulkan dari bunga kelapa. Bahan ini memberikan
+                          gula alami, mineral, dan nutrisi lainnya pada NÜGEL Konsentrat Minuman Olahraga.
+                        </>
+                      ) : (
+                        <>
+                          NÜGEL sports drink concentrate is made with 95% coconut palm sap concentrate, sea salt and lime juice. Coconut palm sap is
+                          also known in Indonesia as <span className="italic">nira kelapa</span>. Coconut sap is
+                          a naturally sweet liquid collected from coconut palm blossoms. It gives
+                          NÜGEL sports drink concentrate its natural sugars, minerals and other nutrients.
+                        </>
+                      )}
                     </p>
 
                     <p>
-                      Sea salt provides additional important minerals as electrolytes, while real lime juice combined with citric and malic acids gives
-                      the drink a fresh taste to balance the
-                      sweetness of the sap and create a smooth, refreshing tartness that works well during
-                      exercise.
+                      {t(
+                        "Sea salt provides additional important minerals as electrolytes, while real lime juice combined with citric and malic acids gives the drink a fresh taste to balance the sweetness of the sap and create a smooth, refreshing tartness that works well during exercise.",
+                        "Garam laut menyediakan mineral penting tambahan sebagai elektrolit, sementara air jeruk nipis asli yang dipadukan dengan asam sitrat dan malat memberikan rasa segar untuk menyeimbangkan manisnya nira dan menghasilkan rasa asam yang halus serta menyegarkan saat berolahraga."
+                      )}
                     </p>
                   </div>
 
@@ -1482,17 +2118,21 @@ Terima kasih!`;
                           />
                         </svg>
                         <p className="text-[11px] font-black uppercase tracking-[0.28em] text-white/90">
-                          How to use
+                          {t("How to use", "Cara penggunaan")}
                         </p>
                       </div>
 
                       <p className="mt-4 text-sm leading-6 text-white/88">
-                        Mix 1 serving (28.5 mL / 2 tbsp) with about 375 mL of water to
-                        prepare 400 mL of sports drink. Shake briefly — concentrate dissolves instantly.
+                        {t(
+                          "Mix 1 serving (28.5 mL / 2 tbsp) with about 375 mL of water to prepare 400 mL of sports drink. Shake briefly — concentrate dissolves instantly.",
+                          "Campurkan 1 sajian (28,5 mL / 2 sdm) dengan sekitar 375 mL air untuk menyiapkan 400 mL minuman olahraga. Kocok sebentar — konsentrat larut seketika."
+                        )}
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/78">
-                        Use before, during and/or after training according to your
-                        energy, hydration and tolerance needs.
+                        {t(
+                          "Use before, during and/or after training according to your energy, hydration and tolerance needs.",
+                          "Gunakan sebelum, selama, dan/atau setelah latihan sesuai kebutuhan energi, hidrasi, dan toleransi Anda."
+                        )}
                       </p>
 
                       <div className="mt-5 border-t border-white/14 pt-4">
@@ -1513,12 +2153,14 @@ Terima kasih!`;
                             <path strokeLinecap="round" d="M4.8 8 12 12l7.2-4M12 12v8" />
                           </svg>
                           <p className="text-[11px] font-black uppercase tracking-[0.28em] text-white/90">
-                            Storage
+                            {t("Storage", "Penyimpanan")}
                           </p>
                         </div>
                         <p className="mt-3 text-sm leading-6 text-white/78">
-                          Store in a cool, dry place away from direct sunlight.
-                          Once opened, keep refrigerated and consume within 30 days.
+                          {t(
+                            "Store in a cool, dry place away from direct sunlight. Once opened, keep refrigerated and consume within 30 days.",
+                            "Simpan di tempat sejuk dan kering, jauh dari sinar matahari langsung. Setelah dibuka, simpan di lemari es dan habiskan dalam 30 hari."
+                          )}
                         </p>
                       </div>
                     </div>
@@ -1541,16 +2183,16 @@ Terima kasih!`;
                           />
                         </svg>
                         <p className="text-[11px] font-black uppercase tracking-[0.28em] text-white/90">
-                          Per 28.5 mL serving
+                          {t("Per 28.5 mL serving", "Per sajian 28,5 mL")}
                         </p>
                       </div>
 
                       <div className="mt-4 divide-y divide-white/14 text-sm">
                         {[
-                          ["Energy", "120 kcal"],
-                          ["Carbohydrates", "29 g"],
-                          ["Electrolytes", "713 mg"],
-                          ["Amino acids", "580 mg"],
+                          [t("Energy", "Energi"), "120 kcal"],
+                          [t("Carbohydrates", "Karbohidrat"), "29 g"],
+                          [t("Electrolytes", "Elektrolit"), "713 mg"],
+                          [t("Amino acids", "Asam amino"), "580 mg"],
                         ].map(([label, value]) => (
                           <div
                             key={label}
@@ -1563,8 +2205,10 @@ Terima kasih!`;
                       </div>
 
                       <p className="mt-5 border-t border-white/14 pt-4 text-sm leading-6 text-white/72">
-                        Includes six key electrolytes and dual-source carbohydrates
-                        in a 1:1 glucose-to-fructose ratio.
+                        {t(
+                          "Includes six key electrolytes and dual-source carbohydrates in a 1:1 glucose-to-fructose ratio.",
+                          "Mengandung enam elektrolit utama dan karbohidrat dua sumber dengan rasio glukosa terhadap fruktosa 1:1."
+                        )}
                       </p>
                     </div>
 
@@ -1587,44 +2231,44 @@ Terima kasih!`;
                           <path strokeLinecap="round" d="M9 10h6M9 14h6" />
                         </svg>
                         <p className="text-[11px] font-black uppercase tracking-[0.28em] text-white/90">
-                          Choose your size
+                          {t("Choose your size", "Pilih ukuran")}
                         </p>
                       </div>
 
                       <div className="mt-4 grid grid-cols-1 gap-3 md:grid-cols-2">
                         <div className="rounded-xl border border-white/15 bg-black/10 p-3 text-left">
                           <p className="text-lg font-black">200 mL</p>
-                          <p className="text-xs text-white/62">bottle</p>
+                          <p className="text-xs text-white/62">{t("bottle", "botol")}</p>
                           <div className="mt-3 border-t border-white/14 pt-3">
-                            <p className="text-sm font-black text-white">7 servings</p>
+                            <p className="text-sm font-black text-white">{t("7 servings", "7 sajian")}</p>
                             <p className="mt-2 text-xs leading-5 text-white/62">
-                              Makes
+                              {t("Makes", "Menghasilkan")}
                               <br />
-                              <span className="font-bold text-white/88">2.8 L</span> of prepared
+                              <span className="font-bold text-white/88">2.8 L</span> {t("of prepared", "minuman olahraga")}
                               <br />
-                              sports drink
+                              {t("sports drink", "siap minum")}
                             </p>
                           </div>
                         </div>
 
                         <div className="rounded-xl border border-white/15 bg-black/10 p-3 text-left">
                           <p className="text-lg font-black">515 mL</p>
-                          <p className="text-xs text-white/62">bottle</p>
+                          <p className="text-xs text-white/62">{t("bottle", "botol")}</p>
                           <div className="mt-3 border-t border-white/14 pt-3">
-                            <p className="text-sm font-black text-white">18 servings</p>
+                            <p className="text-sm font-black text-white">{t("18 servings", "18 sajian")}</p>
                             <p className="mt-2 text-xs leading-5 text-white/62">
-                              Makes 
+                              {t("Makes", "Menghasilkan")} 
                               <br />
-                              <span className="font-bold text-white/88">7.2 L</span> of prepared
+                              <span className="font-bold text-white/88">7.2 L</span> {t("of prepared", "minuman olahraga")}
                               <br />
-                              sports drink
+                              {t("sports drink", "siap minum")}
                             </p>
                           </div>
                         </div>
                       </div>
 
                       <p className="mt-4 text-xs leading-5 text-white/65">
-                        Each serving = 28.5 mL concentrate + 375 mL water
+                        {t("Each serving = 28.5 mL concentrate + 375 mL water", "Setiap sajian = 28,5 mL konsentrat + 375 mL air")}
                       </p>
 
                       <button
@@ -1632,7 +2276,7 @@ Terima kasih!`;
                         onClick={() => setEnergySizeOpen(true)}
                         className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-[#9DFF00] px-5 py-3 text-sm font-black text-black transition hover:scale-[1.02] hover:bg-[#B7FF4A]"
                       >
-                        Choose size
+                        {t("Choose size", "Pilih ukuran")}
                         <span aria-hidden="true">›</span>
                       </button>
 
@@ -1652,53 +2296,59 @@ Terima kasih!`;
                   <div className="flex flex-col items-center">
                     <Image
                       src="/images/nugel-antifog.png"
-                      alt="NÜGEL Anti-Fog Drops 10 ml"
+                      alt={t("NÜGEL Anti-Fog Drops 10 mL", "NÜGEL Anti-Fog 10 mL")}
                       width={460}
                       height={760}
                       className="h-[285px] w-auto object-contain drop-shadow-[0_30px_44px_rgba(0,0,0,0.36)] sm:h-[335px] md:h-[390px] lg:h-[455px]"
                     />
                     <p className="mt-3 max-w-[360px] text-center text-xs leading-5 text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.72)] sm:text-[13px]">
-                      <span className="font-bold">Product shown for illustration.</span> Actual dimensions: height 7.3 cm; diameter 2.2 cm; total weight 18 g.
+                      <span className="font-bold">{t("Product shown for illustration.", "Gambar produk hanya untuk ilustrasi.")}</span>{" "}
+                      {t(
+                        "Actual dimensions: height 7.3 cm; diameter 2.2 cm; total weight 18 g.",
+                        "Dimensi sebenarnya: tinggi 7,3 cm; diameter 2,2 cm; berat total 18 g."
+                      )}
                     </p>
                   </div>
                 </div>
 
                 <div className="rounded-[2rem] border border-white/14 bg-[#031827]/96 p-5 shadow-[0_22px_65px_rgba(0,0,0,0.28)] md:p-6 xl:p-7">
                   <p className="text-xs font-black uppercase tracking-[0.34em] text-[#B7FF4A]">
-                    NÜGEL Anti-Fog Drops 
+                    {t("NÜGEL Anti-Fog Drops", "NÜGEL Tetes Anti-Fog")}
                   </p>
                   <h3 className="mt-3 text-3xl font-black leading-[1.03] tracking-[-0.035em] md:text-[2.35rem]">
-                    Maximum clarity with just one drop.
+                    {t("Maximum clarity with just one drop.", "Kejernihan maksimal hanya dengan satu tetes.")}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-white/88 md:text-base">
-                    NÜGEL anti-fog drops is designed for the wet, high-humidity swimming environment.
-                    It maintains clear vision despite minor moisture, condensation, or perspiration
-                    inside the goggles. Its hydrophilic coating distributes moisture evenly across the lens
-                    surface, preventing droplet formation and fogging. NÜGEL anti-fog drops comes with drop
-                    applicator which ensures precision product application onto the lens.
+                    {t(
+                      "NÜGEL anti-fog drops is designed for the wet, high-humidity swimming environment. It maintains clear vision despite minor moisture, condensation, or perspiration inside the goggles. Its hydrophilic coating distributes moisture evenly across the lens surface, preventing droplet formation and fogging. NÜGEL anti-fog drops comes with drop applicator which ensures precision product application onto the lens.",
+                      "NÜGEL Anti-Fog dirancang untuk lingkungan berenang yang basah dan memiliki kelembapan tinggi. Produk ini membantu menjaga penglihatan tetap jernih meskipun terdapat sedikit kelembapan, kondensasi, atau keringat di bagian dalam kacamata renang. Lapisan hidrofiliknya menyebarkan kelembapan secara merata pada permukaan lensa sehingga membantu mencegah terbentuknya tetesan air dan embun. NÜGEL Anti-Fog dilengkapi aplikator tetes untuk penggunaan yang lebih presisi pada lensa."
+                    )}
                   </p>
 
                   <div className="mt-4 grid gap-3 md:grid-cols-2">
                     <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3">
                       <p className="text-[11px] font-black uppercase tracking-[0.28em] text-white/90">
-                        1 drop per lens
+                        {t("1 drop per lens", "1 tetes per lensa")}
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/82">
-                        Apply 1 drop to the inner surface of each clean lens, spread evenly with a clean finger, allow it tosettle for a few minutes, then wear the goggles. Prior to racing, briefly dip the goggles in water and shake off any excess water. 
+                        {t(
+                          "Apply 1 drop to the inner surface of each clean lens, spread evenly with a clean finger, allow it to settle for a few minutes, then wear the goggles. Prior to racing, briefly dip the goggles in water and shake off any excess water.",
+                          "Teteskan 1 tetes pada permukaan bagian dalam setiap lensa yang bersih, ratakan dengan jari yang bersih, diamkan selama beberapa menit, lalu gunakan kacamata renang. Sebelum perlombaan, celupkan kacamata sebentar ke dalam air lalu kibaskan kelebihan air."
+                        )}
                       </p>
                     </div>
 
                     <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3">
                       <p className="text-[11px] font-black uppercase tracking-[0.28em] text-white/90">
-                        Product details
+                        {t("Product details", "Detail produk")}
                       </p>
 
                       <div className="mt-3 divide-y divide-white/10 text-sm">
                         {[
-                          ["Bottle size", "10 mL"],
-                          ["Approx. drops", "600"],
-                          ["Approx. applications", "300"],
-                          ["Use", "Training & racing"],
+                          [t("Bottle size", "Ukuran botol"), "10 mL"],
+                          [t("Approx. drops", "Perkiraan jumlah tetes"), "600"],
+                          [t("Approx. applications", "Perkiraan pemakaian"), "300"],
+                          [t("Use", "Penggunaan"), t("Training & racing", "Latihan & perlombaan")],
                         ].map(([label, value]) => (
                           <div
                             key={label}
@@ -1710,20 +2360,21 @@ Terima kasih!`;
                         ))}
                       </div>
                       <p className="mt-3 text-xs leading-5 text-white/72">
-                        Apply only to a clean inner lens. Avoid direct eye
-                        contact and reapply when necessary. Actual drop count
-                        and number of applications may vary.
+                        {t(
+                          "Apply only to a clean inner lens. Avoid direct eye contact and reapply when necessary. Actual drop count and number of applications may vary.",
+                          "Gunakan hanya pada permukaan bagian dalam lensa yang bersih. Hindari kontak langsung dengan mata dan aplikasikan kembali bila diperlukan. Jumlah tetes dan jumlah pemakaian sebenarnya dapat bervariasi."
+                        )}
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-4 border-t border-white/10 pt-4">
-                    <p className="text-sm font-bold">Want to buy it separately?</p>
+                    <p className="text-sm font-bold">{t("Want to buy it separately?", "Ingin membelinya secara terpisah?")}</p>
                     <button
                       onClick={() => addToCart("antifog")}
                       className="mt-3 rounded-full bg-[#9DFF00] px-5 py-2.5 text-sm font-bold text-black transition hover:scale-[1.02]"
                     >
-                      Add Anti-Fog · {formatRupiah(products.antifog.price)}
+                      {t("Add Anti-Fog", "Tambah Anti-Fog")} · {formatRupiah(products.antifog.price)}
                     </button>
                   </div>
                 </div>
@@ -1737,77 +2388,81 @@ Terima kasih!`;
                   <div className="flex flex-col items-center">
                     <Image
                       src="/images/nugel-mixing-cup.png"
-                      alt="NÜGEL mixing cup"
+                      alt={t("NÜGEL measuring container", "NÜGEL Wadah Takar")}
                       width={1225}
                       height={1284}
                       className="h-[285px] w-auto object-contain drop-shadow-[0_30px_44px_rgba(0,0,0,0.28)] sm:h-[335px] md:h-[390px] lg:h-[455px]"
                     />
                     <p className="mt-1 max-w-[360px] text-center text-xs leading-5 text-white/92 drop-shadow-[0_2px_10px_rgba(0,0,0,0.72)] sm:mt-0 sm:text-[13px] md:-mt-2 lg:-mt-3">
-                      <span className="font-bold">Product shown for illustration.</span> Actual container (empty) dimensions: height 5.5 cm; diameter 4 cm; weight 15 g.
+                      <span className="font-bold">{t("Product shown for illustration.", "Gambar produk hanya untuk ilustrasi.")}</span>{" "}
+                      {t(
+                        "Actual container (empty) dimensions: height 5.5 cm; diameter 4 cm; weight 15 g.",
+                        "Dimensi wadah kosong sebenarnya: tinggi 5,5 cm; diameter 4 cm; berat 15 g."
+                      )}
                     </p>
                   </div>
                 </div>
 
                 <div className="rounded-[2rem] border border-white/14 bg-[#031827]/96 p-5 shadow-[0_22px_65px_rgba(0,0,0,0.28)] md:p-6 xl:p-7">
                   <p className="text-xs font-black uppercase tracking-[0.34em] text-[#B7FF4A]">
-                    NÜGEL Measuring Container
+                    {t("NÜGEL Measuring Container", "NÜGEL Wadah Takar")}
                   </p>
                   <h3 className="mt-3 text-3xl font-black leading-[1.03] tracking-[-0.035em] md:text-[2.35rem]">
-                    Measure, mix, ready.
+                    {t("Measure, mix, ready.", "Takar, campur, siap.")}
                   </h3>
                   <p className="mt-4 text-sm leading-7 text-white/88 md:text-base">
-                    A reusable measuring container designed for consistent and effortless preparation of sports drink.
+                    {t("A reusable measuring container designed for consistent and effortless preparation of sports drink.", "Wadah takar pakai ulang yang dirancang untuk membantu menyiapkan minuman olahraga secara konsisten dan praktis.")}
                   </p>
 
                   <div className="mt-4 grid gap-3 md:grid-cols-2">
                     <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3">
                       <p className="text-[11px] font-black uppercase tracking-[0.28em] text-white/90">
-                        How to use the measuring container
+                        {t("How to use the measuring container", "Cara menggunakan wadah takar")}
                       </p>
 
                       <p className="mt-3 text-sm font-semibold leading-6 text-white/86">
-                        Prepare now, use later.
+                        {t("Prepare now, use later.", "Siapkan sekarang, gunakan nanti.")}
                       </p>
 
                       <ul className="mt-3 space-y-2 pl-5 text-sm leading-6 text-white/82">
                         <li className="list-disc">
-                          Pour NÜGEL Concentrate up to the 28.5 mL mark.
+                          {t("Pour NÜGEL Concentrate up to the 28.5 mL mark.", "Tuangkan Konsentrat NÜGEL hingga tanda 28,5 mL.")}
                         </li>
                         <li className="list-disc">
-                          Add water until the total reaches 60 mL.
+                          {t("Add water until the total reaches 60 mL.", "Tambahkan air hingga total mencapai 60 mL.")}
                         </li>
                         <li className="list-disc">
-                          Close tightly, then shake briefly.
+                          {t("Close tightly, then shake briefly.", "Tutup rapat, lalu kocok sebentar.")}
                         </li>
                         <li className="list-disc">
-                          Keep it sealed and use it on the same day.
+                          {t("Keep it sealed and use it on the same day.", "Simpan dalam keadaan tertutup dan gunakan pada hari yang sama.")}
                         </li>
                         <li className="list-disc">
-                          When ready to drink, pour the entire mixture into a bottle or tumbler.
+                          {t("When ready to drink, pour the entire mixture into a bottle or tumbler.", "Saat siap diminum, tuangkan seluruh campuran ke dalam botol atau tumbler.")}
                         </li>
                         <li className="list-disc">
-                          Add approximately 340 mL of water, then shake or stir.
+                          {t("Add approximately 340 mL of water, then shake or stir.", "Tambahkan sekitar 340 mL air, lalu kocok atau aduk.")}
                         </li>
                       </ul>
                     </div>
 
                     <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3">
                       <p className="text-[11px] font-black uppercase tracking-[0.28em] text-white/90">
-                        Care
+                        {t("Care", "Perawatan")}
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/82">
-                        After each use, rinse with clean water and wash with mild detergent. Rinse thoroughly and allow to air-dry completely before storing or reusing. Do not use abrasive cleaners or boiling water.
+                        {t("After each use, rinse with clean water and wash with mild detergent. Rinse thoroughly and allow to air-dry completely before storing or reusing. Do not use abrasive cleaners or boiling water.", "Setelah digunakan, bilas dengan air bersih dan cuci menggunakan deterjen lembut. Bilas hingga bersih dan biarkan kering sepenuhnya sebelum disimpan atau digunakan kembali. Jangan gunakan pembersih abrasif atau air mendidih.")}
                       </p>
                     </div>
                   </div>
 
                   <div className="mt-4 border-t border-white/10 pt-4">
-                    <p className="text-sm font-bold">Want to buy it separately?</p>
+                    <p className="text-sm font-bold">{t("Want to buy it separately?", "Ingin membelinya secara terpisah?")}</p>
                     <button
                       onClick={() => addToCart("bottle")}
                       className="mt-3 rounded-full bg-[#9DFF00] px-5 py-2.5 text-sm font-bold text-black transition hover:scale-[1.02]"
                     >
-                      Add Measuring Container · {formatRupiah(products.bottle.price)}
+                      {t("Add Measuring Container", "Tambah Wadah Takar")} · {formatRupiah(products.bottle.price)}
                     </button>
                   </div>
                 </div>
@@ -1823,15 +2478,15 @@ Terima kasih!`;
         <div className="mx-auto w-full max-w-7xl">
           <div data-reveal className="nugel-reveal">
             <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#9DFF00]">
-              Know what you need?
+              {t("Know what you need?", "Sudah tahu yang Anda butuhkan?")}
             </p>
             <h2 className="mt-2 text-3xl font-black md:text-4xl">
-              Build your NÜGEL setup.
+              {t("Build your NÜGEL setup.", "Susun perlengkapan NÜGEL Anda.")}
             </h2>
           </div>
 
           <p data-reveal className="nugel-reveal mt-3 max-w-2xl text-base leading-7 text-white/65">
-            Choose the products that fit your swim routine.
+            {t("Choose the products that fit your swim routine.", "Pilih produk yang sesuai dengan rutinitas berenang Anda.")}
           </p>
 
           <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-[1.5fr_1fr_1fr_1fr]">
@@ -1851,7 +2506,7 @@ Terima kasih!`;
                 >
                   {id === "starter" && (
                     <div className="absolute right-5 top-5 z-20 rounded-full bg-[#9DFF00] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.16em] text-black shadow-[0_8px_24px_rgba(157,255,0,0.20)]">
-                      Most Popular
+                      {t("Most Popular", "Paling Populer")}
                     </div>
                   )}
 
@@ -1896,14 +2551,14 @@ Terima kasih!`;
                       <div className="relative flex h-full w-full items-center justify-center">
                         <Image
                           src="/images/nugel-energy-200.png"
-                          alt="NÜGEL Sports Drink Concentrate 200 ml"
+                          alt={t("NÜGEL Sports Drink Concentrate 200 mL", "NÜGEL Konsentrat Minuman Olahraga 200 mL")}
                           width={1122}
                           height={1402}
                           className="relative z-10 -mr-[42px] translate-x-[3px] scale-x-[0.9] h-[204px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 sm:-mr-[48px]"
                         />
                         <Image
                           src="/images/nugel-energy-515.png"
-                          alt="NÜGEL Sports Drink Concentrate 515 ml"
+                          alt={t("NÜGEL Sports Drink Concentrate 515 mL", "NÜGEL Konsentrat Minuman Olahraga 515 mL")}
                           width={1122}
                           height={1402}
                           className="relative z-20 -translate-x-[20px] translate-y-[14px] scale-x-[1.16] h-[175px] w-auto object-contain transition duration-500 group-hover:-translate-x-[18px] group-hover:translate-y-[6px]"
@@ -1912,7 +2567,7 @@ Terima kasih!`;
                     ) : id === "antifog" ? (
                       <Image
                         src="/images/nugel-antifog.png"
-                        alt="NÜGEL Anti-Fog Drops 10 ml"
+                        alt={t("NÜGEL Anti-Fog Drops 10 mL", "NÜGEL Anti-Fog 10 mL")}
                         width={300}
                         height={520}
                         className="h-[205px] w-auto object-contain transition duration-500 group-hover:-translate-y-1 group-hover:scale-[1.02]"
@@ -1932,8 +2587,8 @@ Terima kasih!`;
                     {id === "starter"
                       ? "NÜGEL STARTER KIT"
                       : id === "energy"
-                        ? "NÜGEL Sports Drink Concentrate"
-                        : product.name}
+                        ? t("NÜGEL Sports Drink Concentrate", "NÜGEL Konsentrat Minuman Olahraga")
+                        : productDisplayName(id)}
                   </h3>
 
                   {id === "starter" ? (
@@ -1947,10 +2602,10 @@ Terima kasih!`;
                         </span>
                       </div>
                       <p className="mt-1 text-sm leading-5 text-white/55">
-                        200 mL Sports Drink Concentrate + Measuring Container + 10 mL Anti-Fog
+                        {t("200 mL Sports Drink Concentrate + Measuring Container + 10 mL Anti-Fog", "200 mL Konsentrat Minuman Olahraga + Wadah Takar + 10 mL Anti-Fog")}
                       </p>
                       <p className="mt-2 text-xs font-black uppercase tracking-[0.1em] text-[#C7FF72]">
-                        SAVE {formatRupiah(STARTER_SAVINGS)}
+                        {t("SAVE", "HEMAT")} {formatRupiah(STARTER_SAVINGS)}
                       </p>
                     </div>
                   ) : (
@@ -1961,13 +2616,13 @@ Terima kasih!`;
                             <span className="font-semibold text-white/88">200 mL</span>
                             {" · "}
                             {formatRupiah(products.energy.price)}
-                            <span className="text-white/45"> · 7 servings</span>
+                            <span className="text-white/45"> · {t("7 servings", "7 sajian")}</span>
                           </p>
                           <p>
                             <span className="font-semibold text-white/88">515 mL</span>
                             {" · "}
                             {formatRupiah(products.energy500.price)}
-                            <span className="text-white/45"> · 18 servings</span>
+                            <span className="text-white/45"> · {t("18 servings", "18 sajian")}</span>
                           </p>
                         </div>
                       ) : (
@@ -1976,13 +2631,13 @@ Terima kasih!`;
 
                       {id === "antifog" && (
                         <p className="mt-1 text-xs font-semibold text-white/48">
-                          ∼300 applications
+                          {t("∼300 applications", "∼300 pemakaian")}
                         </p>
                       )}
 
                       {id === "bottle" && (
                         <p className="mt-1 text-xs font-semibold text-white/48">
-                          Reusable, marked 28.5 mL
+                          {t("Reusable, marked 28.5 mL", "Pakai ulang, bertanda 28,5 mL")}
                         </p>
                       )}
                     </div>
@@ -1995,14 +2650,14 @@ Terima kasih!`;
                         onClick={() => setEnergySizeOpen(true)}
                         className="shop-action-button flex min-h-12 w-full items-center justify-center rounded-full px-5 py-3 font-bold backdrop-blur-sm"
                       >
-                        Choose size
+                        {t("Choose size", "Pilih ukuran")}
                       </button>
                     ) : (
                       <button
                         onClick={() => addToCart(id)}
                         className="shop-action-button flex min-h-12 w-full items-center justify-center rounded-full px-5 py-3 font-bold backdrop-blur-sm"
                       >
-                        Add to Cart
+                        {t("Add to Cart", "Tambah ke Keranjang")}
                       </button>
                     )}
                   </div>
@@ -2017,13 +2672,16 @@ Terima kasih!`;
           >
             <div className="max-w-3xl">
               <p className="text-xs font-black uppercase tracking-[0.32em] text-[#9DFF00]">
-                Club pricing
+                {t("Club pricing", "Harga klub")}
               </p>
               <h3 className="mt-2 text-xl font-black sm:text-2xl">
-                Swim with your squad?
+                {t("Swim with your squad?", "Berenang bersama tim Anda?")}
               </h3>
               <p className="mt-2 text-sm leading-6 text-white/78 sm:text-base">
-                We do volume discounts for clubs or teams. Get in touch to learn more about our club pricing.
+                {t(
+                  "We do volume discounts for clubs or teams. Get in touch to learn more about our club pricing.",
+                  "Kami menyediakan diskon pembelian dalam jumlah besar untuk klub atau tim. Hubungi kami untuk mengetahui lebih lanjut tentang harga khusus klub."
+                )}
               </p>
             </div>
 
@@ -2033,7 +2691,7 @@ Terima kasih!`;
               rel="noopener noreferrer"
               className="mt-4 inline-flex w-full shrink-0 items-center justify-center rounded-full bg-[#9DFF00] px-5 py-3 text-sm font-black text-black transition hover:scale-[1.02] hover:bg-[#B7FF4A] md:mt-0 md:w-auto"
             >
-              Get Club Price
+              {t("Get Club Price", "Tanyakan Harga Klub")}
             </a>
           </div>
         </div>
@@ -2047,10 +2705,10 @@ Terima kasih!`;
         <div className="mx-auto w-full max-w-[1500px]">
           <div data-reveal className="nugel-reveal relative z-10 text-center">
             <p className="text-xs font-bold uppercase tracking-[0.38em] text-[#9DFF00]">
-              About NÜGEL
+              {t("About NÜGEL", "Tentang NÜGEL")}
             </p>
             <h2 className="mt-2 text-3xl font-black md:text-5xl">
-              Dive Deeper Into NÜGEL
+              {t("Dive Deeper Into NÜGEL", "Kenali NÜGEL Lebih Dalam")}
             </h2>
           </div>
 
@@ -2060,7 +2718,7 @@ Terima kasih!`;
                 key={bubble.title}
                 type="button"
                 onClick={() => setActiveAboutBubble(index)}
-                aria-label={`Open ${bubble.title}`}
+                aria-label={t(`Open ${bubble.title}`, `Buka ${bubble.title}`)}
                 className={`about-story-bubble about-story-bubble-${index + 1} group text-left`}
               >
                 <span className="about-bubble-shine" aria-hidden="true" />
@@ -2091,7 +2749,7 @@ Terima kasih!`;
         <div className="fixed inset-0 z-[120] flex items-center justify-center p-3 sm:p-6">
           <button
             type="button"
-            aria-label="Close About story"
+            aria-label={t("Close About story", "Tutup cerita NÜGEL")}
             onClick={() => setActiveAboutBubble(null)}
             className="absolute inset-0 cursor-default bg-[#00101a]/72 backdrop-blur-md"
           />
@@ -2104,7 +2762,7 @@ Terima kasih!`;
           >
             <button
               type="button"
-              aria-label="Close"
+              aria-label={t("Close", "Tutup")}
               onClick={() => setActiveAboutBubble(null)}
               className="absolute right-5 top-5 z-20 flex h-11 w-11 items-center justify-center rounded-full border border-white/20 bg-black/20 text-2xl text-white/80 transition hover:scale-110 hover:border-[#9DFF00] hover:text-[#9DFF00]"
             >
@@ -2330,10 +2988,10 @@ Terima kasih!`;
                         +
                       </div>
                       <p className="mt-5 text-xs font-bold uppercase tracking-[0.28em] text-white/55">
-                        Dieter photo placeholder
+                        {t("Dieter photo placeholder", "Placeholder foto Dieter")}
                       </p>
                       <p className="mt-2 text-xs leading-5 text-white/38">
-                        Replace this area with your final Dieter photo later.
+                        {t("Replace this area with your final Dieter photo later.", "Ganti area ini dengan foto final Dieter nanti.")}
                       </p>
                     </div>
                   </div>
@@ -2352,7 +3010,7 @@ Terima kasih!`;
         <div className="mx-auto w-full max-w-4xl">
           <div data-reveal className="nugel-reveal text-center">
             <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#9DFF00]">
-              Questions?
+              {t("Questions?", "Ada pertanyaan?")}
             </p>
             <h2 className="mt-3 text-3xl font-black md:text-4xl">
               FAQ
@@ -2360,104 +3018,7 @@ Terima kasih!`;
           </div>
 
           <div className="mt-6 space-y-3">
-            {[
-              [
-                "What is in the Starter Kit?",
-                `The NÜGEL Starter Kit includes:
-• 200 mL Sports Drink Concentrate
-• NÜGEL Measuring Container
-• 10 mL NÜGEL Anti-Fog
-
-Bought separately, the three products total ${formatRupiah(STARTER_REGULAR_PRICE)}. The Starter Kit is ${formatRupiah(products.starter.price)}, so you save ${formatRupiah(STARTER_SAVINGS)}.`,
-              ],
-              [
-                "Can I buy the products separately?",
-                `Yes. The Sports Drink Concentrate, Measuring Container, and Anti-Fog can all be purchased separately. If you want all three, the Starter Kit saves you ${formatRupiah(STARTER_SAVINGS)} compared with buying them individually.`,
-              ],
-              [
-                "What sizes does NÜGEL Sports Drink Concentrate come in?",
-                `NÜGEL Sports Drink Concentrate comes in 200 mL (7 servings) and 515 mL (18 servings) bottles.
-
-- 200 mL makes 7 × 400 mL* = 2.8 L total sports drink.
-
-- 515 mL makes 18 × 400 mL* = 7.2 L total sports drink.
-
-*How to make 400 mL: Mix one serving (28.5 mL concentrate) with about 375 mL water.`,
-              ],
-              [
-                "How long does it take to dissolve the concentrate in water?",
-                "It dissolves instantly with 2-3 shakes or stirs — no clumps, no waiting, unlike powder.",
-              ],
-              [
-                "Is the prepared NÜGEL Sports Drink isotonic?",
-                `Yes. NÜGEL is formulated to fall within the isotonic range when prepared as directed (28.5 mL concentrate + 375 mL water ≈ 400 mL).
-
-How we estimated it:
-
-A drink is hypotonic, isotonic or hypertonic depending largely on its osmolality. Isotonic sports drinks are commonly described as having an osmolality of approximately 270–330 mOsm/kg, close to the concentration of body fluids.
-
-Per approximately 400 mL prepared drink:
-
-1. Carbohydrates:
-27 g sugar ≈ 197.2 mOsm/kg
-
-2. Electrolytes:
-
-Sodium 190 mg ≈ 20.6 mOsm/kg
-Potassium 190 mg ≈ 12.1 mOsm/kg
-Chloride 310 mg ≈ 21.8 mOsm/kg
-Other minerals (Mg, Ca, P) ≈ 5.0 mOsm/kg
-Total Electrolytes ≈ 59.6 mOsm/kg
-
-3. Fiber + Protein:
-≈ 2.0 mOsm/kg
-
-4. Organic acids from coconut palm sap, lime juice and added acids:
-≈ 21.2 mOsm/kg
-
-Estimated total:
-
-197.2 + 59.6 + 2.0 + 21.2 ≈ 280 mOsm/kg
-
-This formulation-based estimate places the prepared NÜGEL drink within the commonly used isotonic range of approximately 270–330 mOsm/kg. Actual osmolality may vary and can be confirmed by laboratory measurement.
-
-The sugar in coconut palm sap is mainly sucrose, which is broken down after consumption into glucose and fructose in approximately a 1:1 ratio. These are then absorbed through different intestinal transport pathways—primarily SGLT1 for glucose and GLUT5 for fructose. This dual-carbohydrate principle is widely used in pro endurance sports nutrition formulations.`,
-              ],
-              [
-                "Is NÜGEL halal?",
-                "Yes. NÜGEL Sports Drink Concentrate is labeled Halal Indonesia.",
-              ],
-              [
-                "Is NÜGEL Sports Drink Concentrate suitable for kids?",
-                "NÜGEL can be used by young athletes aged approximately 9–18 years during prolonged or demanding sports activities. For normal daily activity and shorter sessions, water should remain the primary drink, and younger athletes should use sports drinks according to their individual needs and with parental supervision.",
-              ],
-              [
-                "Does NÜGEL Sports Drink Concentrate contain caffeine, and is it doping-safe?",
-                "NÜGEL contains no caffeine or added stimulants and does not intentionally contain substances prohibited by WADA (World Anti-Doping Agency). As with any sports nutrition product, competitive athletes should always check current anti-doping requirements before use.",
-              ],
-              [
-                "Can I apply NÜGEL Anti-Fog Drops on new goggles?",
-                `New swimming goggles usually already have a factory-applied anti-fog coating on the inside of the lenses. If this original coating is still working well, there is normally no need to apply NÜGEL immediately. It is better to leave the factory coating intact and avoid unnecessary rubbing of the inner lens.
-
-Over time, the original anti-fog layer may gradually lose its effectiveness. Depending on the brand, lens type and frequency of use, this may happen after several weeks or months. You may notice that the goggles begin to fog more quickly, or that some parts of the lens remain clear while other areas become foggy.
-
-When the original coating has clearly deteriorated, first check the goggle manufacturer's care instructions. If cleaning of the inner lens is permitted, gently wash the lens with clean lukewarm water and a small amount of mild detergent, then rinse thoroughly. Avoid abrasive cleaners, toothpaste, strong solvents or aggressive rubbing, as these may damage the lens.
-
-Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can be applied as the ongoing anti-fog treatment.`,
-              ],
-              [
-                "How do I order?",
-                "NÜGEL products can currently be ordered through our website or directly via WhatsApp.",
-              ],
-              [
-                "How is shipping calculated?",
-                "Shipping costs are calculated based on your delivery location, package weight, and selected shipping service. The applicable shipping cost will be confirmed via WhatsApp and included in the invoice.",
-              ],
-              [
-                "How is payment made?",
-                "Payment can be made via QRIS or bank transfer to BNI, BCA, or BRI, based on the total amount stated in the invoice.",
-              ],
-            ].map(([question, answer], index) => (
+            {faqItems.map(([question, answer], index) => (
               <details
                 key={question}
                 data-reveal
@@ -2484,20 +3045,23 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             className="nugel-reveal mt-6 flex flex-col items-stretch justify-between gap-4 rounded-2xl border border-[#C7FF72] bg-[#9DFF00] px-5 py-5 text-center text-black shadow-[0_18px_50px_rgba(157,255,0,0.18)] sm:px-6 md:flex-row md:items-center md:text-left"
           >
             <div>
-              <p className="text-lg font-black">Have more questions?</p>
+              <p className="text-lg font-black">{t("Have more questions?", "Masih ada pertanyaan?")}</p>
               <p className="mt-1 text-sm font-medium text-black/70">
-                Send us a message and we&apos;ll help you directly.
+                {t("Send us a message and we'll help you directly.", "Kirim pesan kepada kami dan kami akan membantu Anda langsung.")}
               </p>
             </div>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(
-                "Halo NÜGEL! I have a question about your products."
+                t(
+                  "Hello NÜGEL! I have a question about your products.",
+                  "Halo NÜGEL! Saya punya pertanyaan tentang produk Anda."
+                )
               )}`}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex w-full shrink-0 items-center justify-center gap-2 rounded-full border border-black/20 bg-black px-5 py-3 text-sm font-black text-white transition hover:scale-[1.02] hover:bg-[#06202f] md:w-auto"
             >
-              Ask a Question
+              {t("Ask a Question", "Ajukan Pertanyaan")}
               <span aria-hidden="true">→</span>
             </a>
           </div>
@@ -2512,15 +3076,18 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
         >
           <div className="text-center lg:text-left">
             <p className="text-xs font-bold uppercase tracking-[0.35em] text-[#9DFF00]">
-              Ready for your next swim?
+              {t("Ready for your next swim?", "Siap untuk sesi renang berikutnya?")}
             </p>
 
             <h2 className="mt-3 text-4xl font-black md:text-6xl">
-              Fuel. Prepare. Swim.
+              {t("Fuel. Prepare. Swim.", "Isi energi. Siapkan. Berenang.")}
             </h2>
 
             <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/76 md:text-base lg:mx-0">
-              Start with the NÜGEL essentials and get your swim setup ready in one kit.
+              {t(
+                "Start with the NÜGEL essentials and get your swim setup ready in one kit.",
+                "Mulai dengan produk esensial NÜGEL dan siapkan kebutuhan berenang Anda dalam satu paket."
+              )}
             </p>
 
             <a
@@ -2529,7 +3096,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
               rel="noopener noreferrer"
               className="mt-8 inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-[#9DFF00] px-8 py-4 font-black text-black shadow-[0_14px_35px_rgba(157,255,0,0.20)] transition duration-300 hover:scale-[1.04] hover:bg-[#B7FF4A] md:w-auto"
             >
-              Order via WhatsApp
+              {t("Order via WhatsApp", "Pesan via WhatsApp")}
             </a>
           </div>
 
@@ -2539,7 +3106,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
 
             <Image
               src="/images/nugel-home-products.png"
-              alt="NÜGEL Starter Kit with Sports Drink Concentrate, Measuring Container and Anti-Fog"
+              alt={t("NÜGEL Starter Kit with Sports Drink Concentrate, Measuring Container and Anti-Fog", "NÜGEL Starter Kit dengan Konsentrat Minuman Olahraga, Wadah Takar, dan Anti-Fog")}
               width={952}
               height={1310}
               className="nugel-final-kit-float relative z-10 h-auto w-[270px] object-contain drop-shadow-[0_30px_50px_rgba(0,0,0,0.32)] sm:w-[320px] lg:w-[390px] xl:w-[430px]"
@@ -2560,21 +3127,24 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
               className="h-auto w-[150px]"
             />
             <p className="mt-5 max-w-sm text-sm leading-6 text-white/55">
-              Stay fueled, hydrated, and clear with practical essentials for your swim routine.
+              {t(
+                "Stay fueled, hydrated, and clear with practical essentials for your swim routine.",
+                "Tetap bertenaga, terhidrasi, dan jernih dengan perlengkapan praktis untuk rutinitas berenang Anda."
+              )}
             </p>
           </div>
 
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/45">
-              Navigate
+              {t("Navigate", "Navigasi")}
             </p>
             <div className="mt-4 grid grid-cols-1 gap-x-7 gap-y-3 text-sm font-semibold md:grid-cols-2">
               {[
-                ["#home", "Home"],
-                ["#starter", "Starter Kit"],
-                ["#products", "Products"],
-                ["#shop", "Shop"],
-                ["#about", "About"],
+                ["#home", t("Home", "Beranda")],
+                ["#starter", t("Starter Kit", "Paket Pemula")],
+                ["#products", t("Products", "Produk")],
+                ["#shop", t("Shop", "Belanja")],
+                ["#about", t("About", "Tentang")],
                 ["#faq", "FAQ"],
               ].map(([href, label]) => (
                 <a
@@ -2594,7 +3164,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
 
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/45">
-              Contact & order
+              {t("Contact & order", "Kontak & pemesanan")}
             </p>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
@@ -2605,14 +3175,16 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
               WhatsApp {WHATSAPP_DISPLAY}
             </a>
             <p className="mt-3 max-w-xs text-sm leading-6 text-white/50">
-              Product orders, delivery details and shipping confirmation are
-              handled through WhatsApp.
+              {t(
+                "Product orders, delivery details and shipping confirmation are handled through WhatsApp.",
+                "Pemesanan produk, detail pengiriman, dan konfirmasi ongkos kirim ditangani melalui WhatsApp."
+              )}
             </p>
           </div>
         </div>
 
         <div className="mx-auto mt-10 flex max-w-7xl flex-col gap-2 border-t border-white/10 pt-6 text-xs text-white/40 md:flex-row md:items-center md:justify-between">
-          <p>© {new Date().getFullYear()} NÜGEL. All rights reserved.</p>
+          <p>© {new Date().getFullYear()} NÜGEL. {t("All rights reserved.", "Hak cipta dilindungi.")}</p>
           <p>Indonesia</p>
         </div>
       </footer>
@@ -2622,7 +3194,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
         href={`https://wa.me/${WHATSAPP_NUMBER}`}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Chat with NÜGEL on WhatsApp"
+        aria-label={t("Chat with NÜGEL on WhatsApp", "Chat dengan NÜGEL di WhatsApp")}
         className="fixed bottom-10 right-6 z-40 flex cursor-pointer items-center justify-center drop-shadow-[0_10px_24px_rgba(0,0,0,0.35)] transition duration-300 hover:scale-105 md:bottom-4 md:right-5"
       >
         <Image
@@ -2639,7 +3211,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
         <div className="fixed inset-0 z-[95] flex items-center justify-center px-4">
           <button
             type="button"
-            aria-label="Close energy size chooser"
+            aria-label={t("Close energy size chooser", "Tutup pemilih ukuran")}
             onClick={() => setEnergySizeOpen(false)}
             className="absolute inset-0 bg-black/60 backdrop-blur-sm"
           />
@@ -2648,9 +3220,9 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             <div className="flex items-start justify-between gap-4">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#9DFF00]">
-                  NÜGEL Sports Drink Concentrate
+                  {t("NÜGEL Sports Drink Concentrate", "NÜGEL Konsentrat Minuman Olahraga")}
                 </p>
-                <h2 className="mt-2 text-2xl font-black">Choose your size</h2>
+                <h2 className="mt-2 text-2xl font-black">{t("Choose your size", "Pilih ukuran")}</h2>
               </div>
               <button
                 type="button"
@@ -2680,7 +3252,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                   />
                   <div>
                     <p className="font-bold">200 ml</p>
-                    <p className="mt-1 text-sm text-white/55">NÜGEL Sports Drink Concentrate</p>
+                    <p className="mt-1 text-sm text-white/55">{t("NÜGEL Sports Drink Concentrate", "NÜGEL Konsentrat Minuman Olahraga")}</p>
                   </div>
                 </div>
                 <span className="ml-3 shrink-0 whitespace-nowrap text-sm font-black text-[#9DFF00]">
@@ -2706,7 +3278,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                   />
                   <div>
                     <p className="font-bold">515 ml</p>
-                    <p className="mt-1 text-sm text-white/55">NÜGEL Sports Drink Concentrate</p>
+                    <p className="mt-1 text-sm text-white/55">{t("NÜGEL Sports Drink Concentrate", "NÜGEL Konsentrat Minuman Olahraga")}</p>
                   </div>
                 </div>
                 <span className="ml-3 shrink-0 whitespace-nowrap text-sm font-black text-[#9DFF00]">
@@ -2722,7 +3294,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
       {cartOpen && (
         <div className="fixed inset-0 z-[100]">
           <button
-            aria-label="Close cart"
+            aria-label={t("Close cart", "Tutup keranjang")}
             onClick={() => setCartOpen(false)}
             className="absolute inset-0 cursor-pointer bg-black/70 backdrop-blur-sm"
           />
@@ -2731,9 +3303,9 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-[#9DFF00]">
-                  Your order
+                  {t("Your order", "Pesanan Anda")}
                 </p>
-                <h2 className="mt-2 text-3xl font-black">Cart</h2>
+                <h2 className="mt-2 text-3xl font-black">{t("Cart", "Keranjang")}</h2>
               </div>
 
               <button
@@ -2747,7 +3319,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             <div className="mt-8 flex-1 space-y-4 overflow-y-auto">
               {cartCount === 0 && (
                 <div className="rounded-2xl border border-white/10 bg-white/[0.05] p-6 text-center text-white/65">
-                  Your cart is empty.
+                  {t("Your cart is empty.", "Keranjang Anda masih kosong.")}
                 </div>
               )}
 
@@ -2764,7 +3336,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                   >
                     <div className="flex justify-between gap-4">
                       <div>
-                        <h3 className="font-bold">{product.name}</h3>
+                        <h3 className="font-bold">{productDisplayName(id)}</h3>
                         <p className="mt-1 text-sm text-white/55">
                           {formatRupiah(product.price)}
                         </p>
@@ -2802,7 +3374,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             {cartCount > 0 && (
               <div className="border-t border-white/10 pt-6">
                 <div className="flex items-center justify-between">
-                  <p className="text-white/65">Total</p>
+                  <p className="text-white/65">{t("Total", "Total")}</p>
                   <p className="text-2xl font-black">
                     {formatRupiah(cartTotal)}
                   </p>
@@ -2812,14 +3384,14 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                   onClick={orderViaWhatsApp}
                   className="mt-5 w-full cursor-pointer rounded-full bg-[#9DFF00] px-6 py-4 font-black text-black transition hover:scale-[1.02]"
                 >
-                  Order via WhatsApp
+                  {t("Order via WhatsApp", "Pesan via WhatsApp")}
                 </button>
 
                 <button
                   onClick={clearCart}
                   className="mt-4 w-full cursor-pointer text-sm font-bold text-white/45 transition hover:text-white"
                 >
-                  Clear Cart
+                  {t("Clear Cart", "Kosongkan Keranjang")}
                 </button>
               </div>
             )}
