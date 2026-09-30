@@ -106,10 +106,10 @@ const searchItemsEn: Array<{
 
 const searchItemsId: typeof searchItemsEn = [
   {
-    title: "Paket Pemula",
+    title: "Starter Kit",
     description: "Apa saja yang termasuk dalam NÜGEL Starter Kit.",
     href: "#starter",
-    keywords: "paket pemula starter kit perlengkapan energi anti-fog antifog wadah takar gelas",
+    keywords: "starter kit perlengkapan energi anti-fog antifog wadah takar gelas",
   },
   {
     title: "Konsentrat Minuman Olahraga NÜGEL",
@@ -134,7 +134,7 @@ const searchItemsId: typeof searchItemsEn = [
   },
   {
     title: "Belanja",
-    description: "Beli Paket Pemula atau produk NÜGEL secara satuan.",
+    description: "Beli Starter Kit atau produk NÜGEL secara satuan.",
     href: "#shop",
     keywords: "belanja beli harga keranjang pesan paket energi antifog wadah",
   },
@@ -148,7 +148,7 @@ const searchItemsId: typeof searchItemsEn = [
     title: "FAQ",
     description: "Pertanyaan umum tentang produk, pemesanan, dan pengiriman.",
     href: "#faq",
-    keywords: "faq pertanyaan pengiriman pesan order paket pemula satuan",
+    keywords: "faq pertanyaan pengiriman pesan order starter kit satuan",
   },
 ];
 
@@ -1367,7 +1367,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
 
         <nav className="hidden items-center gap-6 text-sm font-semibold md:flex">
           {[
-            ["#starter", t("Starter Kit", "Paket Pemula")],
+            ["#starter", t("Starter Kit", "Starter Kit")],
             ["#products", t("Products", "Produk")],
             ["#shop", t("Shop", "Belanja")],
             ["#about", t("About", "Tentang")],
@@ -1494,7 +1494,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
         <div className="fixed inset-x-3 top-[72px] z-[80] overflow-hidden rounded-[1.5rem] border border-white/15 bg-[#031522]/95 p-2 shadow-2xl backdrop-blur-2xl md:hidden">
           {[
             ["#home", t("Home", "Beranda")],
-            ["#starter", t("Starter Kit", "Paket Pemula")],
+            ["#starter", t("Starter Kit", "Starter Kit")],
             ["#products", t("Products", "Produk")],
             ["#shop", t("Shop", "Belanja")],
             ["#about", t("About", "Tentang")],
@@ -1822,7 +1822,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
 
               <div className="mt-5 border-t border-white/12 pt-4">
                 <p className="text-xs font-bold uppercase tracking-[0.3em] text-white/75">
-                  {t("What\'s included in the kit?", "Apa saja isi paketnya?")}
+                  {t("What\'s included in the kit?", "Apa saja isi kitnya?")}
                 </p>
 
                 <div className="mt-3 divide-y divide-white/10">
@@ -3141,7 +3141,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             <div className="mt-4 grid grid-cols-1 gap-x-7 gap-y-3 text-sm font-semibold md:grid-cols-2">
               {[
                 ["#home", t("Home", "Beranda")],
-                ["#starter", t("Starter Kit", "Paket Pemula")],
+                ["#starter", t("Starter Kit", "Starter Kit")],
                 ["#products", t("Products", "Produk")],
                 ["#shop", t("Shop", "Belanja")],
                 ["#about", t("About", "Tentang")],
