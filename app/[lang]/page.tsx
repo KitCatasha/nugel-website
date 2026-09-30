@@ -46,21 +46,33 @@ export async function generateMetadata({
     },
 
     openGraph: {
-      title: `NÜGEL | ${title}`,
-      description,
-      url: `/${lang}`,
-      siteName: "NÜGEL",
-      locale: isIndonesian ? "id_ID" : "en_US",
-      alternateLocale: [
-        isIndonesian ? "en_US" : "id_ID",
-      ],
-      type: "website",
-    },
+        title: `NÜGEL | ${title}`,
+        description,
+        url: `/${lang}`,
+        siteName: "NÜGEL",
+        locale: isIndonesian ? "id_ID" : "en_US",
+        alternateLocale: [
+            isIndonesian ? "en_US" : "id_ID",
+        ],
+        type: "website",
+
+        images: [
+            {
+            url: "/images/nugel-og-1200x630.png",
+            width: 1200,
+            height: 630,
+            alt: isIndonesian
+                ? "NÜGEL perlengkapan renang"
+                : "NÜGEL swim essentials",
+            },
+        ],
+        },
 
     twitter: {
       card: "summary_large_image",
       title: `NÜGEL | ${title}`,
       description,
+      images: ["/images/nugel-og-1200x630.png"],
     },
   };
 }
