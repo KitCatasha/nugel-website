@@ -48,6 +48,9 @@ const emptyCart: Record<ProductId, number> = {
 const WHATSAPP_NUMBER = "6281234567890";
 const WHATSAPP_DISPLAY = "+62 812-3456-7890";
 
+// Temporary pre-launch mode. Change to true when NÜGEL officially launches.
+const IS_LAUNCHED = false;
+
 
 const searchItemsEn: Array<{
   title: string;
@@ -451,6 +454,10 @@ export default function Home({
   // This gives mobile browsers a safe fallback even if hydration is delayed.
   const [pageReady, setPageReady] = useState(true);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const [mobileProductsOpen, setMobileProductsOpen] = useState(false);
+  const [footerProductsOpen, setFooterProductsOpen] = useState(false);
+  const [desktopProductsOpen, setDesktopProductsOpen] = useState(false);
+  const [footerDesktopProductsOpen, setFooterDesktopProductsOpen] = useState(false);
   const [activeAboutBubble, setActiveAboutBubble] = useState<number | null>(null);
 
   const productStageRef = useRef<HTMLDivElement>(null);
@@ -463,6 +470,13 @@ export default function Home({
   const cartNoticeTimerRef = useRef<number | null>(null);
 
   useEffect(() => {
+    if (!IS_LAUNCHED) {
+      localStorage.removeItem("nugel-cart");
+      setCart({ ...emptyCart });
+      setCartLoaded(true);
+      return;
+    }
+
     const savedCart = localStorage.getItem("nugel-cart");
 
     if (savedCart) {
@@ -806,6 +820,16 @@ export default function Home({
     window.location.href = `/${targetLanguage}${hash}`;
   }
   function addToCart(productId: ProductId) {
+    if (!IS_LAUNCHED) {
+      setCartNotice(
+        t(
+          "NÜGEL products are coming soon. Ordering is not open yet.",
+          "Produk NÜGEL segera hadir. Pemesanan belum dibuka."
+        )
+      );
+      return;
+    }
+
     setCart((current) => ({
       ...current,
       [productId]: current[productId] + 1,
@@ -879,10 +903,16 @@ export default function Home({
       return;
     }
 
-    productSection?.scrollIntoView({
-      behavior: "smooth",
-      block: "center",
-    });
+    if (productSection) {
+      const rect = productSection.getBoundingClientRect();
+      const headerOffset = 88;
+      const top = window.scrollY + rect.top - headerOffset;
+
+      window.scrollTo({
+        top: Math.max(0, top),
+        behavior: "smooth",
+      });
+    }
 
     window.setTimeout(() => {
       const rail = productRailRef.current;
@@ -1072,6 +1102,16 @@ export default function Home({
     : searchItems;
 
   function orderViaWhatsApp() {
+    if (!IS_LAUNCHED) {
+      setCartNotice(
+        t(
+          "NÜGEL products are coming soon. Ordering is not open yet.",
+          "Produk NÜGEL segera hadir. Pemesanan belum dibuka."
+        )
+      );
+      return;
+    }
+
     const orderLines = (
       Object.keys(products) as ProductId[]
     )
@@ -1212,7 +1252,7 @@ Setelah bagian dalam lensa bersih dan cukup merata, NÜGEL Anti-Fog dapat diguna
       ],
       [
         "Bagaimana cara memesan?",
-        "Produk NÜGEL saat ini dapat dipesan melalui website kami atau langsung melalui WhatsApp.",
+        "Produk NÜGEL segera hadir. Pemesanan melalui website dan WhatsApp akan dibuka saat produk resmi diluncurkan.",
       ],
       [
         "Bagaimana ongkos kirim dihitung?",
@@ -1310,7 +1350,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
               ],
               [
                 "How do I order?",
-                "NÜGEL products can currently be ordered through our website or directly via WhatsApp.",
+                "NÜGEL products are coming soon. Ordering through the website and WhatsApp will open when the products officially launch.",
               ],
               [
                 "How is shipping calculated?",
@@ -1366,9 +1406,84 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
         </a>
 
         <nav className="hidden items-center gap-6 text-sm font-semibold md:flex">
+          <a
+            href="#starter"
+            onClick={(event) => {
+              event.preventDefault();
+              scrollToSection("#starter");
+            }}
+            className="nugel-nav-link relative py-2"
+          >
+            {t("Starter Kit", "Starter Kit")}
+          </a>
+
+          <div
+            className="relative"
+            onMouseEnter={() => setDesktopProductsOpen(true)}
+            onMouseLeave={() => setDesktopProductsOpen(false)}
+          >
+            <button
+              type="button"
+              className="nugel-nav-link relative flex items-center gap-1 py-2"
+              aria-label={t("Show products", "Tampilkan produk")}
+              aria-expanded={desktopProductsOpen}
+            >
+              {t("Products", "Produk")}
+              <span
+                aria-hidden="true"
+                className={`text-[10px] text-white/55 transition-transform duration-200 ${
+                  desktopProductsOpen ? "rotate-180" : ""
+                }`}
+              >
+                ▾
+              </span>
+            </button>
+
+            <div
+              className={`absolute left-1/2 top-full z-[70] w-64 -translate-x-1/2 pt-2 transition-all duration-150 ${
+                desktopProductsOpen
+                  ? "visible translate-y-0 opacity-100"
+                  : "invisible -translate-y-1 opacity-0"
+              }`}
+            >
+              <div className="rounded-2xl border border-white/15 bg-[#031522]/95 p-2 shadow-2xl backdrop-blur-2xl">
+                {[
+                  {
+                    label: t(
+                      "Sports Drink Concentrate",
+                      "Konsentrat Minuman Olahraga"
+                    ),
+                    index: 0,
+                  },
+                  {
+                    label: t("Anti-Fog Drops", "Tetes Anti-Fog"),
+                    index: 1,
+                  },
+                  {
+                    label: t("Measuring Container", "Wadah Takar"),
+                    index: 2,
+                  },
+                ].map((item) => (
+                  <button
+                    key={item.index}
+                    type="button"
+                    onClick={() => {
+                      setDesktopProductsOpen(false);
+                      if (item.index === 0) {
+                        setSpotlightSize(200);
+                      }
+                      goToProduct(item.index);
+                    }}
+                    className="block w-full rounded-xl px-4 py-3 text-left text-sm font-bold text-white/88 transition hover:bg-white/[0.08] hover:text-[#9DFF00]"
+                  >
+                    {item.label}
+                  </button>
+                ))}
+              </div>
+            </div>
+          </div>
+
           {[
-            ["#starter", t("Starter Kit", "Starter Kit")],
-            ["#products", t("Products", "Produk")],
             ["#shop", t("Shop", "Belanja")],
             ["#about", t("About", "Tentang")],
             ["#faq", "FAQ"],
@@ -1390,7 +1505,10 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
         <div className="flex items-center gap-2 md:gap-3">
           <button
             type="button"
-            onClick={() => setMobileMenuOpen((open) => !open)}
+            onClick={() => {
+              setMobileMenuOpen((open) => !open);
+              setMobileProductsOpen(false);
+            }}
             aria-label={mobileMenuOpen ? t("Close navigation", "Tutup navigasi") : t("Open navigation", "Buka navigasi")}
             aria-expanded={mobileMenuOpen}
             className="flex h-10 w-10 items-center justify-center text-white/90 transition hover:text-[#9DFF00] md:hidden"
@@ -1431,8 +1549,26 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
           </button>
 
           <button
-            onClick={() => setCartOpen(true)}
-            aria-label={t(`Open cart with ${cartCount} item${cartCount === 1 ? "" : "s"}`, `Buka keranjang dengan ${cartCount} item`)}
+            onClick={() => {
+              if (IS_LAUNCHED) {
+                setCartOpen(true);
+              } else {
+                setCartNotice(
+                  t(
+                    "NÜGEL products are coming soon. Ordering is not open yet.",
+                    "Produk NÜGEL segera hadir. Pemesanan belum dibuka."
+                  )
+                );
+              }
+            }}
+            aria-label={
+              IS_LAUNCHED
+                ? t(
+                    `Open cart with ${cartCount} item${cartCount === 1 ? "" : "s"}`,
+                    `Buka keranjang dengan ${cartCount} item`
+                  )
+                : t("Ordering coming soon", "Pemesanan segera hadir")
+            }
             className="relative flex h-10 w-10 items-center justify-center text-white/95 transition hover:scale-110 hover:text-[#9DFF00]"
           >
             <svg
@@ -1452,7 +1588,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
               <circle cx="18" cy="20" r="1" />
             </svg>
 
-            {cartCount > 0 && (
+            {IS_LAUNCHED && cartCount > 0 && (
               <span className="absolute -right-1 -top-1 flex h-5 min-w-5 items-center justify-center rounded-full bg-[#9DFF00] px-1 text-[10px] font-black text-black">
                 {cartCount}
               </span>
@@ -1490,12 +1626,92 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
         </div>
       </header>
 
+      {!IS_LAUNCHED && (
+        <div className="fixed inset-x-0 top-[65px] z-40 border-b border-[#9DFF00]/25 bg-[#07131a]/92 px-4 py-2 text-center text-[11px] font-black uppercase tracking-[0.18em] text-[#C7FF72] shadow-lg backdrop-blur-xl md:top-[72px]">
+          {t(
+            "Coming Soon — NÜGEL products are not available to order yet.",
+            "Segera Hadir — Produk NÜGEL belum tersedia untuk dipesan."
+          )}
+        </div>
+      )}
+
       {mobileMenuOpen && (
         <div className="fixed inset-x-3 top-[72px] z-[80] overflow-hidden rounded-[1.5rem] border border-white/15 bg-[#031522]/95 p-2 shadow-2xl backdrop-blur-2xl md:hidden">
           {[
             ["#home", t("Home", "Beranda")],
             ["#starter", t("Starter Kit", "Starter Kit")],
-            ["#products", t("Products", "Produk")],
+          ].map(([href, label]) => (
+            <a
+              key={href}
+              href={href}
+              onClick={(event) => {
+                event.preventDefault();
+                setMobileMenuOpen(false);
+                setMobileProductsOpen(false);
+                scrollToSection(href);
+              }}
+              className="block rounded-xl px-4 py-3 text-sm font-bold text-white/90 transition active:bg-white/10 active:text-[#9DFF00]"
+            >
+              {label}
+            </a>
+          ))}
+
+          <button
+            type="button"
+            onClick={() => setMobileProductsOpen((open) => !open)}
+            aria-expanded={mobileProductsOpen}
+            className="flex w-full items-center justify-between rounded-xl px-4 py-3 text-left text-sm font-bold text-white/90 transition active:bg-white/10 active:text-[#9DFF00]"
+          >
+            <span>{t("Products", "Produk")}</span>
+            <span
+              aria-hidden="true"
+              className={`text-xs transition-transform duration-200 ${
+                mobileProductsOpen ? "rotate-180" : ""
+              }`}
+            >
+              ▾
+            </span>
+          </button>
+
+          {mobileProductsOpen && (
+            <div className="mb-1 ml-3 border-l border-white/12 pl-2">
+              {[
+                {
+                  label: t(
+                    "Sports Drink Concentrate",
+                    "Konsentrat Minuman Olahraga"
+                  ),
+                  index: 0,
+                },
+                {
+                  label: t("Anti-Fog Drops", "Tetes Anti-Fog"),
+                  index: 1,
+                },
+                {
+                  label: t("Measuring Container", "Wadah Takar"),
+                  index: 2,
+                },
+              ].map((item) => (
+                <button
+                  key={item.index}
+                  type="button"
+                  onClick={() => {
+                    setMobileProductsOpen(false);
+                    setMobileMenuOpen(false);
+                    if (item.index === 0) {
+                      setSpotlightSize(200);
+                    }
+                    goToProduct(item.index);
+                  }}
+                  className="block w-full rounded-xl px-4 py-2.5 text-left text-[13px] font-semibold text-white/65 transition active:bg-white/10 active:text-[#9DFF00]"
+                >
+                  {item.label}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {[
             ["#shop", t("Shop", "Belanja")],
             ["#about", t("About", "Tentang")],
             ["#faq", "FAQ"],
@@ -1506,6 +1722,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
               onClick={(event) => {
                 event.preventDefault();
                 setMobileMenuOpen(false);
+                setMobileProductsOpen(false);
                 scrollToSection(href);
               }}
               className="block rounded-xl px-4 py-3 text-sm font-bold text-white/90 transition active:bg-white/10 active:text-[#9DFF00]"
@@ -1611,11 +1828,13 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             type="button"
             onClick={() => {
               setCartNotice(null);
-              setCartOpen(true);
+              if (IS_LAUNCHED) {
+                setCartOpen(true);
+              }
             }}
             className="ml-2 shrink-0 text-xs font-bold text-[#9DFF00] transition hover:text-white"
           >
-            {t("View cart", "Lihat keranjang")}
+            {IS_LAUNCHED ? t("View cart", "Lihat keranjang") : t("Got it", "Mengerti")}
           </button>
         </div>
       )}
@@ -1634,7 +1853,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             }`}
           >
             <div className="mx-auto grid w-full max-w-7xl items-center gap-7 sm:gap-9 lg:-translate-y-3 lg:grid-cols-[0.92fr_1.08fr] lg:gap-10">
-              <div className="max-w-2xl">
+              <div className="max-w-2xl translate-y-5 md:translate-y-6 lg:translate-y-8">
                 <p className="mb-3 text-xs font-bold uppercase tracking-[0.38em] text-[#9DFF00]">
                   {t("Made for swimmers", "Dibuat untuk perenang")}
                 </p>
@@ -1882,7 +2101,9 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                   onClick={() => addToCart("starter")}
                   className="w-full rounded-full bg-white px-6 py-3.5 text-sm font-bold text-[#031522] transition duration-300 hover:scale-[1.03] sm:w-auto"
                 >
-                  {t("Get the Starter Kit", "Dapatkan Starter Kit")} · {formatRupiah(products.starter.price)}
+                  {IS_LAUNCHED
+                    ? `${t("Get the Starter Kit", "Dapatkan Starter Kit")} · ${formatRupiah(products.starter.price)}`
+                    : t("Coming Soon", "Segera Hadir")}
                 </button>
 
                 <div className="mt-6 flex justify-end border-t border-white/12 pb-2 pt-5">
@@ -1994,7 +2215,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             type="button"
             aria-label={t("Previous product", "Produk sebelumnya")}
             onClick={() => scrollRailLoop(productRailRef, -1, 3)}
-            className="absolute left-2 top-[22rem] z-30 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-[#02131f]/58 text-white shadow-lg backdrop-blur-md transition hover:scale-105 hover:border-[#9DFF00] hover:text-[#9DFF00] md:left-6 md:top-1/2 md:grid md:h-9 md:w-9"
+            className="absolute left-2 top-[22rem] z-30 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-[#02131f]/58 text-white shadow-lg backdrop-blur-md transition hover:scale-105 hover:border-[#9DFF00] hover:text-[#9DFF00] md:left-6 md:top-10 md:grid md:h-9 md:w-9"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="block h-3.5 w-3.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="m15 18-6-6 6-6" />
@@ -2005,7 +2226,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             type="button"
             aria-label={t("Next product", "Produk berikutnya")}
             onClick={() => scrollRailLoop(productRailRef, 1, 3)}
-            className="absolute right-2 top-[22rem] z-30 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-[#02131f]/58 text-white shadow-lg backdrop-blur-md transition hover:scale-105 hover:border-[#9DFF00] hover:text-[#9DFF00] md:right-6 md:top-1/2 md:grid md:h-9 md:w-9"
+            className="absolute right-2 top-[22rem] z-30 hidden h-8 w-8 -translate-y-1/2 place-items-center rounded-full border border-white/20 bg-[#02131f]/58 text-white shadow-lg backdrop-blur-md transition hover:scale-105 hover:border-[#9DFF00] hover:text-[#9DFF00] md:right-6 md:top-10 md:grid md:h-9 md:w-9"
           >
             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" className="block h-3.5 w-3.5">
               <path strokeLinecap="round" strokeLinejoin="round" d="m9 18 6-6-6-6" />
@@ -2273,10 +2494,10 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
 
                       <button
                         type="button"
-                        onClick={() => setEnergySizeOpen(true)}
+                        onClick={() => IS_LAUNCHED && setEnergySizeOpen(true)}
                         className="mt-4 flex w-full items-center justify-center gap-2 rounded-full bg-[#9DFF00] px-5 py-3 text-sm font-black text-black transition hover:scale-[1.02] hover:bg-[#B7FF4A]"
                       >
-                        {t("Choose size", "Pilih ukuran")}
+                        {IS_LAUNCHED ? t("Choose size", "Pilih ukuran") : t("Coming Soon", "Segera Hadir")}
                         <span aria-hidden="true">›</span>
                       </button>
 
@@ -2332,8 +2553,8 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                       </p>
                       <p className="mt-3 text-sm leading-6 text-white/82">
                         {t(
-                          "Apply 1 drop to the inner surface of each clean lens, spread evenly with a clean finger, allow it to settle for a few minutes, then wear the goggles. Prior to racing, briefly dip the goggles in water and shake off any excess water.",
-                          "Teteskan 1 tetes pada permukaan bagian dalam setiap lensa yang bersih, ratakan dengan jari yang bersih, diamkan selama beberapa menit, lalu gunakan kacamata renang. Sebelum perlombaan, celupkan kacamata sebentar ke dalam air lalu kibaskan kelebihan air."
+                          "Apply 1 drop to the inner surface of each clean lens, spread it evenly with a clean finger, wait a few minutes, and then wear the goggles. Before racing, briefly dip the goggles in water and shake off any excess water.",
+                          "Teteskan 1 tetes pada permukaan bagian dalam setiap lensa yang bersih, ratakan dengan jari yang bersih, tunggu beberapa menit, lalu gunakan kacamata renang. Sebelum perlombaan, celupkan kacamata sebentar ke dalam air lalu kibaskan kelebihan air."
                         )}
                       </p>
                     </div>
@@ -2374,7 +2595,9 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                       onClick={() => addToCart("antifog")}
                       className="mt-3 rounded-full bg-[#9DFF00] px-5 py-2.5 text-sm font-bold text-black transition hover:scale-[1.02]"
                     >
-                      {t("Add Anti-Fog", "Tambah Anti-Fog")} · {formatRupiah(products.antifog.price)}
+                      {IS_LAUNCHED
+                        ? `${t("Add Anti-Fog", "Tambah Anti-Fog")} · ${formatRupiah(products.antifog.price)}`
+                        : t("Coming Soon", "Segera Hadir")}
                     </button>
                   </div>
                 </div>
@@ -2462,7 +2685,9 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                       onClick={() => addToCart("bottle")}
                       className="mt-3 rounded-full bg-[#9DFF00] px-5 py-2.5 text-sm font-bold text-black transition hover:scale-[1.02]"
                     >
-                      {t("Add Measuring Container", "Tambah Wadah Takar")} · {formatRupiah(products.bottle.price)}
+                      {IS_LAUNCHED
+                        ? `${t("Add Measuring Container", "Tambah Wadah Takar")} · ${formatRupiah(products.bottle.price)}`
+                        : t("Coming Soon", "Segera Hadir")}
                     </button>
                   </div>
                 </div>
@@ -2488,6 +2713,15 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
           <p data-reveal className="nugel-reveal mt-3 max-w-2xl text-base leading-7 text-white/65">
             {t("Choose the products that fit your swim routine.", "Pilih produk yang sesuai dengan rutinitas berenang Anda.")}
           </p>
+
+          {!IS_LAUNCHED && (
+            <div className="mt-5 inline-flex rounded-full border border-[#9DFF00]/30 bg-[#9DFF00]/10 px-4 py-2 text-xs font-black uppercase tracking-[0.16em] text-[#C7FF72]">
+              {t(
+                "Coming Soon — ordering has not opened yet",
+                "Segera Hadir — pemesanan belum dibuka"
+              )}
+            </div>
+          )}
 
           <div className="mt-7 grid grid-cols-1 gap-4 md:grid-cols-2 xl:grid-cols-[1.5fr_1fr_1fr_1fr]">
             {(Object.keys(products) as ProductId[]).filter((id) => id !== "energy500").map((id, index) => {
@@ -2647,7 +2881,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                     {id === "energy" ? (
                       <button
                         type="button"
-                        onClick={() => setEnergySizeOpen(true)}
+                        onClick={() => IS_LAUNCHED && setEnergySizeOpen(true)}
                         className="shop-action-button flex min-h-12 w-full items-center justify-center rounded-full px-5 py-3 font-bold backdrop-blur-sm"
                       >
                         {t("Choose size", "Pilih ukuran")}
@@ -2657,7 +2891,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                         onClick={() => addToCart(id)}
                         className="shop-action-button flex min-h-12 w-full items-center justify-center rounded-full px-5 py-3 font-bold backdrop-blur-sm"
                       >
-                        {t("Add to Cart", "Tambah ke Keranjang")}
+                        {IS_LAUNCHED ? t("Add to Cart", "Tambah ke Keranjang") : t("Coming Soon", "Segera Hadir")}
                       </button>
                     )}
                   </div>
@@ -3085,19 +3319,25 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
 
             <p className="mx-auto mt-4 max-w-xl text-sm leading-7 text-white/76 md:text-base lg:mx-0">
               {t(
-                "Start with the NÜGEL essentials and get your swim setup ready in one kit.",
-                "Mulai dengan produk esensial NÜGEL dan siapkan kebutuhan berenang Anda dalam satu paket."
+                "Start with the NÜGEL essentials and get your swim setup ready in one kit!",
+                "Mulai dengan produk esensial NÜGEL dan siapkan kebutuhan berenang Anda dalam satu paket!"
               )}
             </p>
 
-            <a
-              href={`https://wa.me/${WHATSAPP_NUMBER}`}
-              target="_blank"
-              rel="noopener noreferrer"
-              className="mt-8 inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-[#9DFF00] px-8 py-4 font-black text-black shadow-[0_14px_35px_rgba(157,255,0,0.20)] transition duration-300 hover:scale-[1.04] hover:bg-[#B7FF4A] md:w-auto"
-            >
-              {t("Order via WhatsApp", "Pesan via WhatsApp")}
-            </a>
+            {IS_LAUNCHED ? (
+              <a
+                href={`https://wa.me/${WHATSAPP_NUMBER}`}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-8 inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-[#9DFF00] px-8 py-4 font-black text-black shadow-[0_14px_35px_rgba(157,255,0,0.20)] transition duration-300 hover:scale-[1.04] hover:bg-[#B7FF4A] md:w-auto"
+              >
+                {t("Order via WhatsApp", "Pesan via WhatsApp")}
+              </a>
+            ) : (
+              <div className="mt-8 inline-flex w-full cursor-not-allowed items-center justify-center rounded-full border border-[#9DFF00]/25 bg-[#9DFF00]/10 px-8 py-4 font-black text-[#C7FF72] md:w-auto">
+                {t("Coming Soon", "Segera Hadir")}
+              </div>
+            )}
           </div>
 
           <div className="relative flex min-h-[300px] items-center justify-center lg:min-h-[360px] lg:justify-end">
@@ -3138,11 +3378,195 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/45">
               {t("Navigate", "Navigasi")}
             </p>
-            <div className="mt-4 grid grid-cols-1 gap-x-7 gap-y-3 text-sm font-semibold md:grid-cols-2">
+            {/* Mobile footer navigation: tap Products to expand/collapse. */}
+            <div className="mt-4 space-y-3 text-sm font-semibold md:hidden">
               {[
                 ["#home", t("Home", "Beranda")],
                 ["#starter", t("Starter Kit", "Starter Kit")],
-                ["#products", t("Products", "Produk")],
+              ].map(([href, label]) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setFooterProductsOpen(false);
+                    scrollToSection(href);
+                  }}
+                  className="block w-fit text-white/65 transition active:text-[#9DFF00]"
+                >
+                  {label}
+                </a>
+              ))}
+
+              <button
+                type="button"
+                onClick={() => setFooterProductsOpen((open) => !open)}
+                aria-expanded={footerProductsOpen}
+                className="flex w-fit items-center gap-2 text-white/65 transition active:text-[#9DFF00]"
+              >
+                {t("Products", "Produk")}
+                <span
+                  aria-hidden="true"
+                  className={`text-[10px] transition-transform duration-200 ${
+                    footerProductsOpen ? "rotate-180" : ""
+                  }`}
+                >
+                  ▾
+                </span>
+              </button>
+
+              {footerProductsOpen && (
+                <div className="ml-3 space-y-2 border-l border-white/12 pl-3">
+                  {[
+                    {
+                      label: t(
+                        "Sports Drink Concentrate",
+                        "Konsentrat Minuman Olahraga"
+                      ),
+                      index: 0,
+                    },
+                    {
+                      label: t("Anti-Fog Drops", "Tetes Anti-Fog"),
+                      index: 1,
+                    },
+                    {
+                      label: t("Measuring Container", "Wadah Takar"),
+                      index: 2,
+                    },
+                  ].map((item) => (
+                    <button
+                      key={item.index}
+                      type="button"
+                      onClick={() => {
+                        setFooterProductsOpen(false);
+                        if (item.index === 0) {
+                          setSpotlightSize(200);
+                        }
+                        goToProduct(item.index);
+                      }}
+                      className="block text-left text-[13px] font-semibold text-white/50 transition active:text-[#9DFF00]"
+                    >
+                      {item.label}
+                    </button>
+                  ))}
+                </div>
+              )}
+
+              {[
+                ["#shop", t("Shop", "Belanja")],
+                ["#about", t("About", "Tentang")],
+                ["#faq", "FAQ"],
+              ].map(([href, label]) => (
+                <a
+                  key={href}
+                  href={href}
+                  onClick={(event) => {
+                    event.preventDefault();
+                    setFooterProductsOpen(false);
+                    scrollToSection(href);
+                  }}
+                  className="block w-fit text-white/65 transition active:text-[#9DFF00]"
+                >
+                  {label}
+                </a>
+              ))}
+            </div>
+
+            {/* Desktop footer navigation: Products opens on hover and closes on mouse leave. */}
+            <div className="mt-4 hidden grid-cols-2 gap-x-7 gap-y-3 text-sm font-semibold md:grid">
+              <a
+                href="#home"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection("#home");
+                }}
+                className="w-fit text-white/65 transition hover:text-[#9DFF00]"
+              >
+                {t("Home", "Beranda")}
+              </a>
+
+              <a
+                href="#starter"
+                onClick={(event) => {
+                  event.preventDefault();
+                  scrollToSection("#starter");
+                }}
+                className="w-fit text-white/65 transition hover:text-[#9DFF00]"
+              >
+                {t("Starter Kit", "Starter Kit")}
+              </a>
+
+              <div
+                className="relative w-fit"
+                onMouseEnter={() => setFooterDesktopProductsOpen(true)}
+                onMouseLeave={() => setFooterDesktopProductsOpen(false)}
+              >
+                <button
+                  type="button"
+                  className={`flex items-center gap-1 transition ${
+                    footerDesktopProductsOpen
+                      ? "text-[#9DFF00]"
+                      : "text-white/65"
+                  }`}
+                  aria-label={t("Show products", "Tampilkan produk")}
+                  aria-expanded={footerDesktopProductsOpen}
+                >
+                  {t("Products", "Produk")}
+                  <span
+                    aria-hidden="true"
+                    className={`text-[10px] transition-transform duration-200 ${
+                      footerDesktopProductsOpen ? "rotate-180" : ""
+                    }`}
+                  >
+                    ▾
+                  </span>
+                </button>
+
+                <div
+                  className={`absolute left-0 top-full z-[70] w-64 pt-2 transition-all duration-150 ${
+                    footerDesktopProductsOpen
+                      ? "visible translate-y-0 opacity-100"
+                      : "invisible -translate-y-1 opacity-0"
+                  }`}
+                >
+                  <div className="rounded-2xl border border-white/15 bg-[#031522]/95 p-2 shadow-2xl backdrop-blur-2xl">
+                    {[
+                      {
+                        label: t(
+                          "Sports Drink Concentrate",
+                          "Konsentrat Minuman Olahraga"
+                        ),
+                        index: 0,
+                      },
+                      {
+                        label: t("Anti-Fog Drops", "Tetes Anti-Fog"),
+                        index: 1,
+                      },
+                      {
+                        label: t("Measuring Container", "Wadah Takar"),
+                        index: 2,
+                      },
+                    ].map((item) => (
+                      <button
+                        key={item.index}
+                        type="button"
+                        onClick={() => {
+                          setFooterDesktopProductsOpen(false);
+                          if (item.index === 0) {
+                            setSpotlightSize(200);
+                          }
+                          goToProduct(item.index);
+                        }}
+                        className="block w-full rounded-xl px-4 py-3 text-left text-sm font-bold text-white/75 transition hover:bg-white/[0.08] hover:text-[#9DFF00]"
+                      >
+                        {item.label}
+                      </button>
+                    ))}
+                  </div>
+                </div>
+              </div>
+
+              {[
                 ["#shop", t("Shop", "Belanja")],
                 ["#about", t("About", "Tentang")],
                 ["#faq", "FAQ"],
@@ -3164,7 +3588,7 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
 
           <div>
             <p className="text-xs font-bold uppercase tracking-[0.28em] text-white/45">
-              {t("Contact & order", "Kontak & pemesanan")}
+              {IS_LAUNCHED ? t("Contact & order", "Kontak & pemesanan") : t("Contact", "Kontak")}
             </p>
             <a
               href={`https://wa.me/${WHATSAPP_NUMBER}`}
@@ -3176,8 +3600,8 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
             </a>
             <p className="mt-3 max-w-xs text-sm leading-6 text-white/50">
               {t(
-                "Product orders, delivery details and shipping confirmation are handled through WhatsApp.",
-                "Pemesanan produk, detail pengiriman, dan konfirmasi ongkos kirim ditangani melalui WhatsApp."
+                "Questions about NÜGEL can be sent through WhatsApp. Ordering will open when the products officially launch.",
+                "Pertanyaan tentang NÜGEL dapat dikirim melalui WhatsApp. Pemesanan akan dibuka saat produk resmi diluncurkan."
               )}
             </p>
           </div>
