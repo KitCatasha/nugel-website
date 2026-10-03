@@ -14,6 +14,10 @@ Product website for **NÜGEL**, an Indonesian swim-essentials brand offering spo
 
 Next.js · React · TypeScript · Tailwind CSS · Three.js · React Three Fiber · Cloudflare
 
-## Live Website
+## License 
 
-[nugel.shop](https://nugel.shop)
+The source code in this repository is available under the MIT License.
+
+The MIT License applies only to the source code. It does not grant permission to use the NÜGEL name, logo, trademarks, product names, product information, formulations, photographs, videos, packaging designs, or other proprietary brand assets. These materials may not be reused without permission from their respective rights holders.
+
+Third-party code and assets remain subject to their respective licenses and terms.
