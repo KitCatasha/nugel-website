@@ -2549,14 +2549,89 @@ Once the inner lens is clean and reasonably uniform, NÜGEL Anti-Fog Drops can b
                   <div className="mt-4 grid gap-3 md:grid-cols-2">
                     <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3">
                       <p className="text-[11px] font-black uppercase tracking-[0.28em] text-white/90">
-                        {t("1 drop per lens", "1 tetes per lensa")}
-                      </p>
-                      <p className="mt-3 text-sm leading-6 text-white/82">
                         {t(
-                          "Apply 1 drop to the inner surface of each clean lens, spread it evenly with a clean finger, wait a few minutes, and then wear the goggles. Before racing, briefly dip the goggles in water and shake off any excess water.",
-                          "Teteskan 1 tetes pada permukaan bagian dalam setiap lensa yang bersih, ratakan dengan jari yang bersih, tunggu beberapa menit, lalu gunakan kacamata renang. Sebelum perlombaan, celupkan kacamata sebentar ke dalam air lalu kibaskan kelebihan air."
+                          "How to Use: 1 Drop Per Lens",
+                          "Cara Penggunaan: 1 Tetes per Lensa"
                         )}
                       </p>
+
+                      <div className="mt-4 space-y-5 text-sm leading-6 text-white/82">
+                        <div>
+                          <p className="font-black uppercase tracking-[0.16em] text-[#C7FF72]">
+                            {t("For Training", "Untuk Latihan")}
+                          </p>
+
+                          <ol className="mt-2 space-y-2 pl-5">
+                            <li className="list-decimal">
+                              <span className="font-bold text-white">
+                                {t("Before Training:", "Sebelum Latihan:")}
+                              </span>{" "}
+                              {t(
+                                "Apply 1 drop to the inside of each clean, dry lens. Spread evenly using a clean finger, then let dry untouched for at least 4 minutes.",
+                                "Teteskan 1 tetes pada bagian dalam setiap lensa yang bersih dan kering. Ratakan menggunakan jari yang bersih, lalu biarkan mengering tanpa disentuh selama setidaknya 4 menit."
+                              )}
+                            </li>
+
+                            <li className="list-decimal">
+                              <span className="font-bold text-white">
+                                {t("Poolside:", "Di Tepi Kolam:")}
+                              </span>{" "}
+                              {t(
+                                "Keep the inside of the lenses completely dry and untouched.",
+                                "Jaga bagian dalam lensa tetap benar-benar kering dan jangan disentuh."
+                              )}
+                            </li>
+
+                            <li className="list-decimal">
+                              <span className="font-bold text-white">
+                                {t("Before Jumping In:", "Sebelum Masuk ke Kolam:")}
+                              </span>{" "}
+                              {t(
+                                "Put goggles on directly—do not rinse or wipe—and begin your session.",
+                                "Langsung kenakan kacamata renang—jangan dibilas atau dilap—lalu mulai sesi latihan."
+                              )}
+                            </li>
+                          </ol>
+                        </div>
+
+                        <div className="border-t border-white/10 pt-4">
+                          <p className="font-black uppercase tracking-[0.16em] text-[#C7FF72]">
+                            {t("For Racing", "Untuk Perlombaan")}
+                          </p>
+
+                          <ol className="mt-2 space-y-2 pl-5">
+                            <li className="list-decimal">
+                              <span className="font-bold text-white">
+                                {t("Call Room:", "Call Room:")}
+                              </span>{" "}
+                              {t(
+                                "Apply 1 drop to the inside of each clean, dry lens. Spread evenly using a clean finger, then let dry untouched for at least 4 minutes.",
+                                "Teteskan 1 tetes pada bagian dalam setiap lensa yang bersih dan kering. Ratakan menggunakan jari yang bersih, lalu biarkan mengering tanpa disentuh selama setidaknya 4 menit."
+                              )}
+                            </li>
+
+                            <li className="list-decimal">
+                              <span className="font-bold text-white">
+                                {t("Starting Area:", "Area Start:")}
+                              </span>{" "}
+                              {t(
+                                "Briefly dip the goggles into pool water and gently shake off the excess.",
+                                "Celupkan kacamata renang sebentar ke dalam air kolam, lalu kibaskan perlahan kelebihan air."
+                              )}
+                            </li>
+
+                            <li className="list-decimal">
+                              <span className="font-bold text-white">
+                                {t("Behind the Block:", "Di Belakang Balok Start:")}
+                              </span>{" "}
+                              {t(
+                                "Put goggles on shortly before stepping up and prepare for your race.",
+                                "Kenakan kacamata renang sesaat sebelum naik ke balok start dan bersiap untuk perlombaan."
+                              )}
+                            </li>
+                          </ol>
+                        </div>
+                      </div>
                     </div>
 
                     <div className="rounded-xl border border-white/10 bg-white/[0.02] p-3">
